@@ -1,0 +1,115 @@
+<ion-view view-title="Payment Method">
+
+    <ion-footer-bar align-title="left">
+      <div class="tabs-striped tabs-icon-only tabs-color-positive">
+        <div class="tabs tabs-icon-top tabs-search">
+          <a class="tab-item" ng-class="{active:uripath == '/app/profile'};" ng-click="goHome()">
+            <i class="icon ion-home"></i>
+            Home
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/cactivity'};" href="#/app/cactivity">
+            <i class="icon ion-ios-box"></i>
+            Storage
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/activity'};" href="#/app/activity">
+            <i class="icon ion-ios-speedometer"></i>
+            Dashboard
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/gallery'};" href="#/app/gallery">
+            <i class="icon ion-ios-heart"></i>
+            Favorites
+          </a>
+          <a class="tab-item" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon"></i>
+            <span class="badge badge-assertive" ng-show="notiCounts.notifications">{{notiCounts.notifications}}</span>
+            More
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>    
+
+    <ion-content>
+        <p class="padding">
+            A payment method is required in order to make offers and/or post requests. It's also required as part of the onboarding process as a form of user identification for the protection of all users on our platform.
+        </p>
+      
+        <div ng-show="!userData.pin_payment.response">
+            <form ng-submit="submitPayments()">
+                <div class="list list-nm card card-flat">
+                  <div class="item item-divider">
+                    Billing
+                  </div>          
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">Address 1 <span class="assertive">*</span></span>
+                    <input type="text" placeholder="" id="address-line1">
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">Address 2</span>
+                    <input type="text" placeholder="" id="address-line2">
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">City <span class="assertive">*</span></span>
+                    <input type="text" placeholder="" id="address-city">
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">State <span class="assertive">*</span></span>
+                    <input type="text" placeholder="" id="address-state">
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">Postcode <span class="assertive">*</span></span>
+                    <input type="text" placeholder="" id="address-postcode">
+                  </label>
+                
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">Country <span class="assertive">*</span></span>
+                    <input type="text" placeholder="" id="address-country">
+                  </label>
+                
+                  <div class="item item-divider">
+                    Payment
+                  </div>          
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">Credit Card Number <span class="assertive">*</span></span>
+                    <input type="tel" placeholder="" id="cc-number">
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">Name on Card <span class="assertive">*</span></span>
+                    <input type="text" placeholder="" id="cc-name" value="{{userData.first_name}} {{userData.last_name}}">
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">Expiry Month <span class="assertive">*</span></span>
+                    <input type="tel" placeholder="MM" id="cc-expiry-month">
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">Expiry Year <span class="assertive">*</span></span>
+                    <input type="tel" placeholder="YYYY" id="cc-expiry-year">
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">Security Code <span class="assertive">*</span></span>
+                    <input type="tel" placeholder="CVC" id="cc-cvc">
+                  </label>
+                </div>
+                
+                <div class="">
+                    <button class="button button-box button-energized button-block" type="submit">Submit</button>
+                </div>      
+          
+            </form>
+        </div>
+        
+        <div ng-show="userData.pin_payment.response">
+            <div class="list list-nm">
+                <div class="item item-icon-left">
+                    <i class="icon ion-card"></i>
+                    <strong>{{userData.pin_payment.response.card.name}}</strong>
+                    <p>{{userData.pin_payment.response.card.display_number}}</p>
+                </div>
+            </div>   
+            <div class="padding hide">
+                <button class="button button-assertive button-block" type="submit">Delete Card</button>
+            </div>      
+               
+        </div>
+
+    </ion-content>
+</ion-view>

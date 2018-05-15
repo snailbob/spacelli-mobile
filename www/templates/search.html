@@ -1,0 +1,116 @@
+<ion-view view-title="Search" align-title="left">
+  <ion-nav-bar class="bar-positive" align-title="left">
+      <ion-nav-buttons side="left">
+          <button class="button button-clear button-small" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon"></i>
+          </button>
+      </ion-nav-buttons>
+  </ion-nav-bar>
+
+    <!-- <div class="bar bar-header bar-positive">
+      <ion-nav-buttons side="left">
+          <button class="button button-clear button-small" menu-toggle="left">
+            <i class="icon ion-navicon"></i>
+          </button>
+      </ion-nav-buttons>
+
+    </div> -->
+
+    <div class="bar bar-subheader item-input-inset padding-left padding-right">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" class="search-input-main" g-places-autocomplete force-selection="true" ng-model="search.string" placeholder="Search city, address" ng-model-options="{ debounce: 250 }" ng-change="getSpaces()">
+
+        <a ng-if="search.string != ''" on-touch="search.string = ''">
+           <i class="icon ion-android-close placeholder-icon"></i>
+        </a>
+      </label>
+    </div>
+    <ion-footer-bar align-title="left" class="bar-positivex footer-search-btns">
+
+      <div class="tabs-striped tabs-color-positive tabs-icon-left">
+        <div class="tabs tabs-search">
+          <a class="tab-item active" ng-class="{'active': 0 === current}" ng-click="slide(0)">
+            <i class="icon ion-ios-list-outline"></i>
+            List
+          </a>
+          <a class="tab-item" ng-class="{'active': 1 === current}" ng-click="slide(1)">
+            <i class="icon ion-map"></i>
+            Map
+          </a>
+          <a class="tab-item" ng-click="openModalFilter()">
+            <i class="icon ion-ios-settings-strong"></i>
+            Filters
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>
+
+  <ion-content class="has-subheader" style="padding-bottom: 0">
+
+        <div class="animate-fade-slide-in" ng-if="spaces.spaces && !current">
+          <div class="list card card-listings" ng-repeat="space in spaces.spaces | orderBy:'distance'" on-finish-render="ngRepeatFinished">
+            <div class="item item-image" ng-click="openModal(space)">
+              <div class="corner-ribbon top-right sticky blue" ng-click="openModal(space)">
+                ${{space.price}}/mo
+              </div>
+              <div ng-click="openModal(space)">
+                <img ng-src="{{space.seeker_img}}">
+              </div>
+              <img ng-src="{{space.image}}">
+            </div>
+            <div class="item item-avatar item-icon-right">
+              <img ng-src="{{space.seeker_img}}" ng-click="openModal(space)">
+              <h2 ng-click="openModal(space)">{{space.title}}</h2>
+              <p ng-click="openModal(space)">{{space.seeker_name}}</p>
+              <i class="icon assertive" ng-class="{'ion-ios-heart-outline' : !space.favorite, 'ion-ios-heart' : space.favorite}" ng-click="space.favorite = !space.favorite"></i>
+            </div>
+
+
+            <!-- <a class="item item-icon-left">
+              <i class="icon assertive" ng-class="{'ion-ios-heart-outline' : !space.favorite, 'ion-ios-heart' : space.favorite}" ng-click="space.favorite = !space.favorite"></i>
+              <h2>{{space.title}}</h2>
+              <p>{{space.geo_name}}</p>
+            </a> -->
+          </div>
+        </div>
+
+        <div ng-if="!current">
+          <p ng-if="search.string != ''" class="text-center padding">
+              <ion-spinner ng-show="search.placeholder == 'spinner'"></ion-spinner>
+              <span ng-show="spaces.spaces.length == 0 && search.placeholder != 'spinner'">No space found.</span>
+          </p>
+          <p ng-if="!spaces.spaces && search.string == ''" class="text-center padding">Search for space nearby</p>
+
+        </div>
+
+        <div ng-show="current" class="map-container">
+          <div id="map" data-tap-disabled="true"></div>
+        </div>
+
+
+        <!-- <ion-slide-box class="slide-map" ng-init="disableSwipe()" on-slide-changed="slideHasChanged($index)">
+            <ion-slide class="search-list-content">
+
+                <ion-list class="list-nm animate-fade-slide-in" ng-if="spaces.spaces">
+                    <ion-item class="item-thumbnail-left item-thumbspace-left item-icon-right" ng-repeat="space in spaces.spaces | orderBy:'distance'" ng-click="openModal(space)" on-finish-render="ngRepeatFinished">
+                      <img class="img-space" ng-src="{{space.image}}">
+                      <h2>{{space.title}}</h2>
+                      <p>{{space.geo_name}}</p>
+                      <i class="icon ion-ios-arrow-thin-right"></i>
+
+                      <ion-option-button class="button-assertive ion-ios-heart" ng-click="addFav(space, $index)">
+                      </ion-option-button>
+
+                    </ion-item>
+                </ion-list>
+
+            </ion-slide>
+            <ion-slide>
+            </ion-slide>
+        </ion-slide-box> -->
+
+
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,51 @@
+<ion-view view-title="Reviews">
+
+    <ion-footer-bar align-title="left">
+      <div class="tabs-striped tabs-icon-only tabs-color-positive">
+        <div class="tabs tabs-icon-top tabs-search">
+          <a class="tab-item" ng-class="{active:uripath == '/app/profile'};" ng-click="goHome()">
+            <i class="icon ion-home"></i>
+            Home
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/cactivity'};" href="#/app/cactivity">
+            <i class="icon ion-ios-box"></i>
+            Storage
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/activity'};" href="#/app/activity">
+            <i class="icon ion-ios-speedometer"></i>
+            Dashboard
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/gallery'};" href="#/app/gallery">
+            <i class="icon ion-ios-heart"></i>
+            Favorites
+          </a>
+          <a class="tab-item" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon"></i>
+            <span class="badge badge-assertive" ng-show="notiCounts.notifications">{{notiCounts.notifications}}</span>
+            More
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>    
+
+    <ion-content>
+        <p class="padding text-center" ng-show="reviews.length == 0">
+            Nothing to show you.
+        </p>
+        <div class="list list-nm" ng-show="reviews.length > 0">
+        
+            <a class="item item-avatar" ng-repeat="r in reviews" ng-click="reviewDetails(r)">
+              <img ng-src="{{r.avatar}}">
+                <span class="item-note">
+                  {{r.review_date_format}}
+                </span>  
+              
+              <h2>{{r.reviewed_by_name}}</h2>
+              <p><span class="">{{r.task_name}}</span></p>
+              <p class="list-white-space"><i class="ion-quote"></i> {{r.message}}</p>
+            </a>
+        
+        
+        </div>
+    </ion-content>
+</ion-view>

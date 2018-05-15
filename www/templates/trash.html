@@ -1,0 +1,58 @@
+<ion-view view-title="Trash">
+  <!--<ion-nav-buttons side="right" ng-show="false">
+    <button class="button button-icon icon ion-ios-minus-outline" ng-click="data.showDelete = !data.showDelete"></button>
+  </ion-nav-buttons>-->
+
+    <ion-footer-bar align-title="left">
+      <div class="tabs-striped tabs-icon-only tabs-color-positive">
+        <div class="tabs tabs-icon-top tabs-search">
+          <a class="tab-item" ng-class="{active:uripath == '/app/profile'};" ng-click="goHome()">
+            <i class="icon ion-home"></i>
+            Home
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/cactivity'};" href="#/app/cactivity">
+            <i class="icon ion-ios-box"></i>
+            Storage
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/activity'};" href="#/app/activity">
+            <i class="icon ion-ios-speedometer"></i>
+            Dashboard
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/gallery'};" href="#/app/gallery">
+            <i class="icon ion-ios-heart"></i>
+            Favorites
+          </a>
+          <a class="tab-item" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon"></i>
+            <span class="badge badge-assertive" ng-show="notiCounts.notifications">{{notiCounts.notifications}}</span>
+            More
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>    
+
+    <ion-content>
+        <p class="padding text-center" ng-show="messages.length == 0">
+            Nothing to show you.
+        </p>
+        <ion-list class="list-nm animate-blinds" show-delete="data.showDelete" ng-show="messages.length> 0">
+          <ion-item class="item-avatar item-remove-animate" ng-repeat="message in messages" ng-click="showMessage(message)" on-finish-render="ngRepeatFinished">
+            <img ng-src="{{message.sender_avatar}}">
+            <h2>{{message.subject}}</h2>
+            <p>{{message.sender_name}}
+                <span class="item-note">
+                  {{message.send_date}}
+                </span>    
+            </p> 
+            <ion-delete-button class="ion-minus-circled" 
+             ng-click="onItemDelete(message)">
+            </ion-delete-button>
+            
+          </ion-item>
+          
+          {{message}}
+        
+        </ion-list>
+        
+    </ion-content>
+</ion-view>

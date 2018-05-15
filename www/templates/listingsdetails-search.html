@@ -1,0 +1,171 @@
+<ion-modal-view>
+  <ion-header-bar class="header-positive">
+    <button class="button button-clear ion-ios-arrow-back" ng-click="closeModal()"></button>
+    <h1 class="title">Listing Details</h1>
+  </ion-header-bar>
+  <ion-footer-bar align-title="left" class="bar-energized footer-requestbtn" ng-click="openModalBook()">
+    <div class="title">Request Booking</div>
+    <!-- <div class="padding fixed-buttom-btnx">
+    	<button class="button button-box button-energized button-block" ng-show="spaces.space_type == 'search'">Request Booking</button>
+    </div> -->
+  </ion-footer-bar>
+
+  <ion-content>
+    <div class="margin-bottom">
+      <div class="list list-nm cardx cardx-flat">
+
+        <div class="item item-image">
+          <img ng-src="{{activity.image}}" ng-if="activity.images.length < 2">
+          <ion-slide-box ng-if="activity.images.length > 1" show-pager="true">
+            <ion-slide ng-repeat="img in activity.images"><img ng-src="{{img.file_upload_name}}"></ion-slide>
+          </ion-slide-box>
+        </div>
+
+        <div class="item">
+          <h2 class="space-list-name-lg list-white-space">{{activity.title}}</h2>
+        </div>
+
+        <div class="item item-avatar">
+          <img ng-src="{{activity.seeker_img}}">
+          <h2>{{activity.seeker_name}}</h2>
+          <p>{{activity.date_added}}</p>
+        </div>
+
+        <div class="item">
+          <div class="row row-space-icons">
+            <div class="col list-white-space">
+              <i class="icon ion-ios-home-outline"></i> <br> {{activity.space_type}}
+            </div>
+            <div class="col list-white-space">
+              <i class="icon ion-ios-pricetag-outline"></i> <br> ${{activity.price}}/month
+            </div>
+            <div class="col list-white-space">
+              <i class="icon ion-ios-clock-outline"></i> <br> {{activity.access_mob}}
+            </div>
+            <div class="col list-white-space">
+              <i class="icon ion-ios-locked-outline"></i> <br> {{activity.security_mob}}
+            </div>
+          </div>
+
+        </div>
+
+
+
+        <!-- <div class="item item-icon-left">
+          <i class="icon ion-pin"></i>
+          <strong class="list-white-space">Space Type</strong>
+          <p class="">{{activity.space_type}}</p>
+        </div> -->
+
+        <!-- <div class="item item-icon-left">
+          <i class="icon ion-ios-pricetag-outline"></i>
+          <strong>Rental Fee</strong>
+          <p class="list-white-space">${{activity.price}}/month</p>
+        </div> -->
+
+        <div class="item item-icon-left">
+          <i class="icon ion-ios-location-outline"></i>
+          <strong>Suburb</strong>
+          <p class="list-white-space">{{activity.geo_name}}</p>
+        </div>
+
+        <!-- <div class="item item-icon-left">
+          <i class="icon ion-ios-clock-outline"></i>
+          <strong>Access</strong>
+          <p class="list-white-space">{{activity.access_mob}}</p>
+        </div> -->
+
+        <!-- <div class="item item-icon-left">
+          <i class="icon ion-ios-locked-outline"></i>
+          <strong>Security</strong>
+          <p class="list-white-space">{{activity.security_mob}}</p>
+        </div> -->
+
+        <div class="item item-icon-left">
+          <i class="icon ion-ios-box-outline"></i>
+          <strong>Services</strong>
+          <p class="list-white-space">{{activity.services_mob}}</p>
+        </div>
+        <h3 class="padding">
+          About the trader
+        </h3>
+        <div class="item item-icon-left">
+          <i class="icon ion-ios-person-outline"></i>
+          <strong>About me</strong>
+          <p class="list-white-space">{{activity.profile.description}}</p>
+        </div>
+        <div class="item item-icon-left">
+          <i class="icon ion-ios-calendar-outline"></i>
+          <strong>Member Since</strong>
+          <p class="list-white-space">{{activity.profile.date_joined | date:'medium'}}</p>
+        </div>
+
+        <div class="item">
+          <strong>Verifications</strong>
+
+          <div class="row row-space-icons2">
+            <div class="col list-white-space" ng-if="activity.profile.email_verified">
+              <div class="verification-circle">
+                <i class="icon ion-ios-email-outline"></i>
+              </div>
+            </div>
+            <div class="col list-white-space" ng-if="activity.profile.sms_verified">
+              <div class="verification-circle">
+                <i class="icon ion-iphone"></i>
+              </div>
+            </div>
+            <div class="col list-white-space" ng-if="activity.profile.facebook">
+              <div class="verification-circle">
+                <i class="icon ion-social-facebook-outline"></i>
+              </div>
+            </div>
+            <div class="col list-white-space" ng-if="activity.profile.twitter">
+              <div class="verification-circle">
+                <i class="icon ion-social-twitter-outline"></i>
+              </div>
+            </div>
+
+            <div class="col list-white-space" ng-if="activity.profile.linkedin">
+              <div class="verification-circle">
+                <i class="icon ion-social-linkedin-outline"></i>
+              </div>
+            </div>
+            <div class="col list-white-space" ng-if="activity.profile.google_plus">
+              <div class="verification-circle">
+                <i class="icon ion-social-googleplus-outline"></i>
+              </div>
+            </div>
+            <div class="col list-white-space" ng-if="activity.profile.airbnb">
+              <div class="verification-circle">
+                <i class="icon ion-paper-airplane"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <h4 class="padding">
+          {{activity.reviews.length}} Review(s)
+        </h4>
+        <div class="item item-avatar" ng-repeat="review in activity.reviews">
+          <img ng-src="{{review.reviewer_image}}">
+          <h2>{{review.reviewer_name}}</h2>
+          <p class="list-white-space">{{review.message}}</p>
+          <p>
+            <small ng-bind-html="review.star_details"></small>
+          </p>
+          <p class="text-yellow">
+            <small ng-bind-html="review.star_rates"></small>
+          </p>
+        </div>
+
+      </div>
+
+
+    </div>
+    <!-- <div class="padding fixed-buttom-btn">
+    	<button class="button button-box button-energized button-block" ng-click="openModalBook()" ng-show="spaces.space_type == 'search'">Request Booking</button>
+    </div> -->
+
+  </ion-content>
+</ion-modal-view>

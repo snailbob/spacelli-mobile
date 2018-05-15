@@ -1,0 +1,81 @@
+<ion-view view-title="Payout Preferences">
+
+    <ion-footer-bar align-title="left">
+      <div class="tabs-striped tabs-icon-only tabs-color-positive">
+        <div class="tabs tabs-icon-top tabs-search">
+          <a class="tab-item" ng-class="{active:uripath == '/app/profile'};" ng-click="goHome()">
+            <i class="icon ion-home"></i>
+            Home
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/cactivity'};" href="#/app/cactivity">
+            <i class="icon ion-ios-box"></i>
+            Storage
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/activity'};" href="#/app/activity">
+            <i class="icon ion-ios-speedometer"></i>
+            Dashboard
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/gallery'};" href="#/app/gallery">
+            <i class="icon ion-ios-heart"></i>
+            Favorites
+          </a>
+          <a class="tab-item" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon"></i>
+            <span class="badge badge-assertive" ng-show="notiCounts.notifications">{{notiCounts.notifications}}</span>
+            More
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>    
+
+    
+    <ion-content>
+        <p class="padding">
+            When you receive a payment, we call that payment to you a “payout”. Our secure payment system supports third-party bank accounts payout methods, which can be setup and edited here.
+        </p>
+        <div ng-show="!userData.pin_bank.response">
+            <div class="list list-nm card card-flat list-wide">
+              <div class="item item-divider">
+                Billing
+              </div>          
+              <label class="item item-input item-stacked-label">
+                <!--<span class="input-label">Name <span class="assertive">*</span></span>-->
+                <input type="text" placeholder="Name" id="ba-name" value="{{userData.first_name}} {{userData.last_name}}">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <!--<span class="input-label">BSB <span class="assertive">*</span></span>-->
+                <input type="tel" placeholder="BSB" id="ba-bsb">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <!--<span class="input-label">Number <span class="assertive">*</span></span>-->
+                <input type="tel" placeholder="Number" id="ba-number">
+              </label>
+            </div>
+            
+            <div class="">
+                <button class="button button-box button-energized button-block" ng-click="submitPayments(uservices)">Submit</button>
+            </div>   
+        </div>          
+        
+        <div ng-show="userData.pin_bank.response">
+            <div class="list list-nm card card-flat">
+                <div class="item item-icon-left">
+                    <i class="icon ion-ios-home-outline"></i>
+                    <strong>{{userData.pin_bank.response.bank_account.name}}</strong>
+                    <p>{{userData.pin_bank.response.email}}<br />
+    {{userData.pin_bank.response.bank_account.number}}</p>
+                </div>
+    
+                <ion-toggle ng-model="payout.checked" 
+                            ng-change="changePayout(payout.checked)"
+                            ng-checked="payout.checked">
+                  {{ payout.text }}
+                </ion-toggle>            
+                
+            </div>   
+            <div class="padding hide">
+                <button class="button button-assertive button-block" type="submit">Delete Bank</button>
+            </div>      
+        </div>          
+    </ion-content>
+</ion-view>

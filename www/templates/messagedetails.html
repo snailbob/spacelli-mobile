@@ -1,0 +1,64 @@
+
+
+
+<ion-modal-view>
+  <ion-header-bar class="header-positive">
+    <button class="button button-clear ion-ios-arrow-back" ng-click="closeModal()"></button>
+    <h1 class="title">Message</h1>
+
+  </ion-header-bar>
+  <ion-content class="content-stable"
+                 on-swipe-left="hideTime = false"
+                 on-swipe-right="hideTime = true">
+
+      <div ng-repeat="message in eachMessage.conversations"
+           ng-class="{other: message.sender_id != userData.seeker_id}"
+           class="messages">
+
+        <div class="message" ng-class="{'slide-right': !hideTime, '': hideTime}">
+          <span>{{message.message}}</span>
+        </div>
+
+        <div class="time" ng-class="{'slide-right': !hideTime, '': hideTime}">{{message.time}}</div>
+
+
+      </div>
+
+    
+<!--        <ion-list class="list-nm">
+          <ion-item class="item-avatar item-text-wrap" ng-repeat="message in eachMessage.conversations">
+            <img ng-src="{{message.sender_avatar}}">
+            <h2>
+                <span>{{message.sender_name}}</span>
+            </h2>
+            <p>{{message.message}}
+            </p> 
+
+          </ion-item>
+          
+          {{message}}
+    
+        </ion-list>    -->
+    
+     
+	<!--<div class="" ng-show="uripath == '/app/inbox'">
+    	<button class="button button-box button-energized button-block" ng-click="openPm(eachMessage, 'login')"><i class="icon ion-ios-undo"></i> Reply</button>
+    </div> -->   
+
+  </ion-content>
+  
+
+
+    <ion-footer-bar keyboard-attach class="item-input-inset padding-left padding-right">
+      
+      <label class="item-input-wrapper">
+        <input type="text" placeholder="Type your message" on-return="sendMessage(); closeKeyboard()" ng-model="data.message" on-focus="inputUp()" on-blur="inputDown()" />
+      </label>
+      <div class="footer-btn-wrap">
+        <button class="button button-icon icon ion-android-send footer-btn"ng-click="sendMessage()">
+        </button>
+      </div>
+    </ion-footer-bar>
+      
+
+</ion-modal-view>

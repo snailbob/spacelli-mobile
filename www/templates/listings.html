@@ -1,0 +1,64 @@
+<ion-view view-title="My Listings">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear button-icon icon ion-ios-plus-outline" ng-click="openModalAdd({})"></button>
+    </ion-nav-buttons>
+
+    <ion-footer-bar align-title="left">
+      <div class="tabs-striped tabs-icon-only tabs-color-positive">
+        <div class="tabs tabs-icon-top tabs-search">
+          <a class="tab-item" ng-class="{active:uripath == '/app/profile'};" ng-click="goHome()">
+            <i class="icon ion-home"></i>
+            Home
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/cactivity'};" href="#/app/cactivity">
+            <i class="icon ion-ios-box"></i>
+            Storage
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/activity'};" href="#/app/activity">
+            <i class="icon ion-ios-speedometer"></i>
+            Dashboard
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/gallery'};" href="#/app/gallery">
+            <i class="icon ion-ios-heart"></i>
+            Favorites
+          </a>
+          <a class="tab-item" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon"></i>
+            <span class="badge badge-assertive" ng-show="notiCounts.notifications">{{notiCounts.notifications}}</span>
+            More
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>    
+
+
+    <ion-content>
+        <p class="padding text-center" ng-show="spaces.spaces.length == 0">
+            Nothing to show you.
+        </p>
+        
+        
+        <ion-list class="list-nm animate-blinds" ng-show="spaces.spaces.length > 0">
+            <ion-item class="item-thumbnail-left item-thumbspace-left item-icon-right" ng-repeat="space in spaces.spaces" ng-click="openModal(space)" on-finish-render="ngRepeatFinished">
+              <img class="img-space" ng-src="{{space.image}}">
+              <h2>{{space.title}}</h2>
+              <p>{{space.geo_name}}</p>
+              <i class="icon ion-ios-arrow-thin-right"></i>
+              <!--<ion-option-button class="button-assertive"
+                                 ng-click="openModalAdd(space)">
+                Edit
+              </ion-option-button>
+              <ion-option-button class="button-calm"
+                                 ng-click="popUp()">
+                Status
+              </ion-option-button>-->        
+            
+            </ion-item>
+            <!--<a ng-repeat="space in spaces.spaces" class="item item-thumbnail-left item-thumbspace-left" ng-click="openModal(space)">
+            </a>-->
+        
+        
+        </ion-list>
+
+    </ion-content>
+</ion-view>

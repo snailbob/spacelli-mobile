@@ -1,0 +1,42 @@
+<ion-view view-title="Verifications">
+
+    <ion-footer-bar align-title="left">
+      <div class="tabs-striped tabs-icon-only tabs-color-positive">
+        <div class="tabs tabs-icon-top tabs-search">
+          <a class="tab-item" ng-class="{active:uripath == '/app/profile'};" ng-click="goHome()">
+            <i class="icon ion-home"></i>
+            Home
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/cactivity'};" href="#/app/cactivity">
+            <i class="icon ion-ios-box"></i>
+            Storage
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/activity'};" href="#/app/activity">
+            <i class="icon ion-ios-speedometer"></i>
+            Dashboard
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/gallery'};" href="#/app/gallery">
+            <i class="icon ion-ios-heart"></i>
+            Favorites
+          </a>
+          <a class="tab-item" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon"></i>
+            <span class="badge badge-assertive" ng-show="notiCounts.notifications">{{notiCounts.notifications}}</span>
+            More
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>    
+
+    <ion-content>
+        <div class="list list-wide list-nm animate-blinds">
+        
+          <a class="item item-icon-left" ng-repeat="v in verifications" ng-click="actionVerify(v)" on-finish-render="ngRepeatFinished">
+            <i class="icon ion-checkmark-circled balanced" ng-show="v.status == 'ok'"></i>
+            <i class="icon ion-close-circled assertive" ng-show="v.status != 'ok'"></i>
+            {{v.mess}} <span ng-show="v.status == 'ok'">Verified</span>
+          </a>
+        </div>
+        
+    </ion-content>
+</ion-view>

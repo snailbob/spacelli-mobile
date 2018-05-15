@@ -1,0 +1,19 @@
+<ion-modal-view>
+  <ion-header-bar class="header-positive">
+    <button class="button button-clear ion-ios-arrow-back" ng-click="closeSearchFunc()"></button>
+    <h1 class="title">{{searchTitle}}</h1>
+  </ion-header-bar>
+  <ion-content>
+        
+      <div class="list list-nm card card-flat list-tab-item">
+         <label class="item item-input">
+           <i class="icon ion-search placeholder-icon"></i>
+           <input type="text" g-places-autocomplete force-selection="true" ng-model="search.string" placeholder="Where do you need space?" ng-change="getSpaces(search.string)">
+         </label>
+       </div>
+       <div class="">
+            <button class="button button-box button-energized button-block" ng-click="closeSearchFunc()">OK</button>
+       </div>
+    
+  </ion-content>
+</ion-modal-view>

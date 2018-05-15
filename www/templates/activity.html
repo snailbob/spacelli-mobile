@@ -1,0 +1,142 @@
+<ion-view view-title="Dashboard">
+    <!--<ion-nav-buttons side="right" ng-show="false">
+        <button class="button button-clear button-icon icon ion-ios-plus-outline" ng-click="openModalAdd({})"></button>
+    </ion-nav-buttons>-->
+
+    <ion-footer-bar align-title="left">
+      <div class="tabs-striped tabs-icon-only tabs-color-positive">
+        <div class="tabs tabs-icon-top tabs-search">
+          <a class="tab-item" ng-class="{active:uripath == '/app/profile'};" ng-click="goHome()">
+            <i class="icon ion-home"></i>
+            Home
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/cactivity'};" href="#/app/cactivity">
+            <i class="icon ion-ios-box"></i>
+            Storage
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/activity'};" href="#/app/activity">
+            <i class="icon ion-ios-speedometer"></i>
+            Dashboard
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/gallery'};" href="#/app/gallery">
+            <i class="icon ion-ios-heart"></i>
+            Favorites
+          </a>
+          <a class="tab-item" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon"></i>
+            <span class="badge badge-assertive" ng-show="notiCounts.notifications">{{notiCounts.notifications}}</span>
+            More
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>    
+
+    <ion-content>
+
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-if="userData.trade_space == '0'">
+            <ion-slide>
+                <div class="padding-left padding-right">
+                    <div class="row text-center">
+                      <div class="col positive">
+                      	<h3 ng-bind-html="userData.seeker_draft"></h3>
+                      	Draft
+                      </div>
+                      <div class="col assertive">
+                      	<h3 ng-bind-html="userData.seeker_open"></h3>
+                      	Open
+                      </div>
+                      <div class="col energized">
+                      	<h3 ng-bind-html="userData.seeker_assigned"></h3>
+                      	Assigned
+                      </div>
+                      <div class="col royal">
+                      	<h3 ng-bind-html="userData.seeker_completed"></h3>
+                      	Awaiting
+                      </div>
+                      <!--<div class="col balanced">
+                      	<h3 class="balanced" ng-bind-html="userData.seeker_paid"></h3>
+                      	Completed
+                      </div>-->
+                    </div>    
+            
+                </div>
+    
+
+            </ion-slide>
+            <ion-slide>
+                <div class="padding-left padding-right padding-bottom">
+                    <div class="row text-center">
+                      <div class="col positive">
+                      	<h3 class="" ng-bind-html="userData.running_bid"></h3>
+                      	Bid on
+                      </div>
+                      <div class="col energized">
+                      	<h3 class="" ng-bind-html="userData.running_assigned"></h3>
+                      	Assigned
+                      </div>
+                      <div class="col royal">
+                      	<h3 class="" ng-bind-html="userData.running_completed"></h3>
+                      	Awaiting
+                      </div>
+                      <!--<div class="col">
+                      	<h3 class="calm" ng-bind-html="userData.running_paid"></h3>
+                      	Completed
+                      </div>-->
+                    </div>    
+            
+                </div>
+            </ion-slide>
+        </ion-slide-box>  
+                
+        <div class="row row-sm" ng-if="userData.trade_space == '0'">
+          <div class="col col-first">
+          	<div class="text-center">
+                <p style="margin-bottom: 5px;">&nbsp;</p>
+                <a class="button button-clear balanced"><h1 ng-class="{stable:completeCount == 0}">{{completeCount}}</h1></a>
+                <p style="margin-bottom: 5px;">
+                    Completed
+                </p>
+            </div>
+          </div>
+          <div class="col">
+          	<div class="text-center">
+
+                <p style="margin-bottom: 5px;">My Profile Rating</p>
+                <a class="button button-clear" href="#/app/reviews"><h1 ng-class="{dark:userData.user_stars.average > 0, stable:userData.user_stars.average == 0}">{{userData.user_stars.average}} <sup>%</sup></h1></a>
+                <p style="margin-bottom: 5px;">
+                    <i ng-repeat="string in userData.user_stars.stars track by $index" class="icon {{string}} {{userData.user_stars.mood}}"></i>
+                    <br /><span class="stable">({{userData.user_stars.revpoints}} from {{userData.user_stars.reviews}} reviews)</span>
+		
+                </p>
+            </div>
+          </div>
+        </div>        
+      
+        <ion-list class="list-nm animate-blinds" ng-if="userData.trade_space == '1' && activities.data.length > 0">
+            
+            <div class="item item-divider">
+                Booking Requests
+            </div>
+            
+            <a class="item item-avatar item-icon-right" ng-repeat="activity in activities.data" on-finish-render="ngRepeatFinished" ng-click="openModal(activity)" >
+              <img ng-src="{{activity.avatar}}">
+              <h2>{{activity.name}}</h2>
+              <p>
+                  <span class="positive">{{activity.status_text}}</span>
+                  <span class="">&middot; <small>{{activity.date_added_format}}</small></span>
+              </p>
+              <i class="icon ion-ios-arrow-thin-right"></i>
+            </a>      
+        
+        </ion-list> 
+        <ion-list class="list-nm" ng-show="activities.data.length == 0">
+            <div class="item item-divider">
+                Booking Requests
+            </div>
+            
+            <div class="item">
+            Nothing to show you.
+            </div>
+        </ion-list> 
+    </ion-content>
+</ion-view>

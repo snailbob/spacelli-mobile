@@ -1,0 +1,45 @@
+<ion-modal-view>
+  <ion-header-bar class="header-positive">
+    <button class="button button-clear ion-ios-arrow-back" ng-click="closeModalAdd()"></button>
+    <h1 class="title">Request Space</h1>
+    <!--<div class="buttons">
+      <button class="button button-clear" ng-click="closeModalAdd()">Close</button>
+    </div>-->
+  </ion-header-bar>
+  <ion-content>
+        <form ng-submit="submitRequest()">
+            <div class="list">
+              <label class="item item-input item-floating-label">
+                <span class="input-label">Post Title</span>
+                <input type="text" ng-model="request.name" placeholder="Post Title">
+              </label>
+              <label class="item item-input item-floating-label">
+                <span class="input-label">Months in Storage</span>
+                <input type="tel" ng-model="request.hour_count" placeholder="Months in Storage">
+              </label>
+              <label class="item item-input item-floating-label">
+                <span class="input-label">Location</span>
+                <input type="text" g-places-autocomplete ng-model="search.string" force-selection="true" placeholder="Location"/>
+              </label>
+
+              <label class="item item-input item-floating-label">
+                <span class="input-label">Describe what you need stored</span>
+                <textarea ng-model="request.description" rows="4" placeholder="Description"></textarea>
+              </label>
+              <div class="item item-divider">
+              	Do you require services for:
+              </div>
+              <ion-toggle ng-model="request.services['Packing']" toggle-class="toggle-balanced">Packing</ion-toggle>
+              <ion-toggle ng-model="request.services['Pick-Up']" toggle-class="toggle-balanced">Pick-Up</ion-toggle>
+              <ion-toggle ng-model="request.services['Delivery']" toggle-class="toggle-balanced">Delivery</ion-toggle>
+            </div>
+            
+            <div class="padding">
+            	<button class="button button-energized button-block" type="submit">Submit</button>
+            </div>
+
+        </form>
+    
+    
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,71 @@
+<ion-view view-title="Space Search">
+
+    <ion-header-bar class="header-positive">
+        <button class="button button-clear ion-ios-arrow-back" ng-click="backBtn()"></button>
+        <h1 class="title">Space Search</h1>
+    </ion-header-bar>
+    	
+    <div class="bar bar-subheader item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" g-places-autocomplete force-selection="true" ng-model="search.string" placeholder="Search" ng-model-options="{ debounce: 250 }" ng-change="getSpaces()">
+        
+        <a ng-if="search.string != ''" on-touch="search.string = ''">
+           <i class="icon ion-android-close placeholder-icon"></i>
+        </a>    
+      </label>
+    </div>
+
+
+    <ion-footer-bar align-title="left">
+      <div class="tabs-striped tabs-icon-only tabs-color-positive">
+        <div class="tabs tabs-icon-top tabs-search">
+          <a class="tab-item" ng-class="{active:uripath == '/app/profile'};" ng-click="goHome()">
+            <i class="icon ion-home"></i>
+            Home
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/cactivity'};" href="#/app/cactivity">
+            <i class="icon ion-ios-box"></i>
+            Storage
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/activity'};" href="#/app/activity">
+            <i class="icon ion-ios-speedometer"></i>
+            Dashboard
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/gallery'};" href="#/app/gallery">
+            <i class="icon ion-ios-heart"></i>
+            Favorites
+          </a>
+          <a class="tab-item" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon"></i>
+            <span class="badge badge-assertive" ng-show="notiCounts.notifications">{{notiCounts.notifications}}</span>
+            More
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>    
+
+
+    <ion-content class="content-subhead">
+
+        <ion-list ng-if="spaces.spaces">
+            <ion-item class="item-thumbnail-left item-thumbspace-left" ng-repeat="space in spaces.spaces | orderBy:'distance'" ng-click="openModal(space)">
+              <img class="img-space" ng-src="{{space.image}}">
+              <h2>{{space.title}}</h2>
+              <p>{{space.geo_name}}</p>
+              
+              <ion-option-button class="button-assertive" ng-click="openModalAdd(space)">
+                Favorite
+              </ion-option-button>
+            
+            </ion-item>
+        </ion-list>
+        
+        <p ng-if="search.string != ''" class="text-center padding">
+            <ion-spinner ng-show="search.placeholder == 'spinner'"></ion-spinner>
+            <span ng-show="spaces.spaces.length == 0 && search.placeholder != 'spinner'">No space found.</span>
+        </p>
+        <p ng-if="!spaces.spaces && search.string == ''" class="text-center padding">Search for space nearby</p>
+
+    </ion-content>
+</ion-view>

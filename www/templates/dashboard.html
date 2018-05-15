@@ -1,0 +1,133 @@
+<ion-view view-title="Dashboard">
+
+    <ion-footer-bar align-title="left">
+      <div class="tabs-striped tabs-icon-only tabs-color-positive">
+        <div class="tabs tabs-icon-top tabs-search">
+          <a class="tab-item" ng-class="{active:uripath == '/app/profile'};" ng-click="goHome()">
+            <i class="icon ion-home"></i>
+            Home
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/cactivity'};" href="#/app/cactivity">
+            <i class="icon ion-ios-box"></i>
+            Storage
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/activity'};" href="#/app/activity">
+            <i class="icon ion-ios-speedometer"></i>
+            Dashboard
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/gallery'};" href="#/app/gallery">
+            <i class="icon ion-ios-heart"></i>
+            Favorites
+          </a>
+          <a class="tab-item" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon"></i>
+            <span class="badge badge-assertive" ng-show="notiCounts.notifications">{{notiCounts.notifications}}</span>
+            More
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>    
+
+    <ion-content>
+    
+        <div class="padding">
+            <div class="button-bar tabs-summary">
+              <a class="button button-positive" ng-class="{'button-outline': 1 === current}" ng-click="slide(0)">As Space Seeker</a>
+              <a class="button button-positive" ng-class="{'button-outline': 0 === current}" ng-click="slide(1)">As Space Trader</a>
+            </div>    
+    
+        </div>
+    
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+            <ion-slide>
+                <div class="padding-left padding-right">
+                    <div class="row text-center">
+                      <div class="col positive">
+                      	<h3 ng-bind-html="userData.seeker_draft"></h3>
+                      	Draft
+                      </div>
+                      <div class="col assertive">
+                      	<h3 ng-bind-html="userData.seeker_open"></h3>
+                      	Open
+                      </div>
+                      <div class="col energized">
+                      	<h3 ng-bind-html="userData.seeker_assigned"></h3>
+                      	Assigned
+                      </div>
+                      <div class="col royal">
+                      	<h3 ng-bind-html="userData.seeker_completed"></h3>
+                      	Awaiting
+                      </div>
+                      <div class="col balanced">
+                      	<h3 class="balanced" ng-bind-html="userData.seeker_paid"></h3>
+                      	Completed
+                      </div>
+                    </div>    
+            
+                </div>
+    
+
+            </ion-slide>
+            <ion-slide>
+                <div class="padding-left padding-right padding-bottom">
+                    <div class="row dark text-center">
+                      <div class="col">
+                      	<h3 class="calm" ng-bind-html="userData.running_bid"></h3>
+                      	Bid on
+                      </div>
+                      <div class="col">
+                      	<h3 class="calm" ng-bind-html="userData.running_assigned"></h3>
+                      	Assigned
+                      </div>
+                      <div class="col">
+                      	<h3 class="calm" ng-bind-html="userData.running_completed"></h3>
+                      	Awaiting
+                      </div>
+                      <div class="col">
+                      	<h3 class="calm" ng-bind-html="userData.running_paid"></h3>
+                      	Completed
+                      </div>
+                    </div>    
+            
+                </div>
+            </ion-slide>
+        </ion-slide-box>  
+        
+        <div class="row">
+          <div class="col text-center">
+          	<hr class="stable" style="margin-top: 0;"/>
+            <p>My Profile Rating</p>
+            <a class="button button-clear" href="#/app/reviews"><h3 class="calm" ng-bind-html="userData.reviews.length"></h3></a><br />
+            <p>
+                <i class="icon ion-ios-star"></i>
+                <i class="icon ion-ios-star"></i>
+                <i class="icon ion-ios-star"></i>
+                <i class="icon ion-ios-star"></i>
+                <i class="icon ion-ios-star"></i>
+            </p>
+          </div>
+        </div>    
+          
+          
+        <div class="list list-nm animate-blinds">
+            
+            <div class="item item-divider">
+                Notifications
+            </div>
+            
+            <div class="item" ng-show="notifications.notifs.length == 0">
+            Nothing to show you.
+            </div>
+            
+            
+            <div class="item" ng-repeat="notifs in notifications.notifs" ng-click="notiAction(notifs)" on-finish-render="ngRepeatFinished">
+              <p class="list-white-space" ng-show="notifs.class == ''">{{notifs.message}}</p>
+              <p class="list-white-space positive" ng-show="notifs.class != ''"><strong>{{notifs.message}}</strong></p>
+                <span class="item-note">
+                  {{notifs.send_date}}
+                </span>
+            </div>      
+        
+        </div> 
+    </ion-content>
+</ion-view>

@@ -1,0 +1,62 @@
+<ion-modal-view>
+  <!--<ion-header-bar class="header-positive">
+    <button class="button button-clear ion-ios-arrow-back" ng-click="closeSignComp()"></button>
+    <h1 class="title">Great!</h1>
+  </ion-header-bar>-->
+  <ion-content>
+  		<div class="text-center padding">
+            <h3>Great!</h3>
+        	<p>You’re registered with Spacelli. We just need a few more details to complete your profile.</p>
+		</div>
+        
+        <form ng-submit="doSignupComp()" novalidate="novalidate">
+          <div class="list list-nm">
+            <label class="item item-input">
+              <span class="input-label">First Name</span>
+              <input type="text" ng-model="loginData.first">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Last Name</span>
+              <input type="text" ng-model="loginData.last">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Email</span>
+              <input type="email" ng-model="loginData.signe">
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Country Code
+                </div>
+                <select ng-model="loginData.countryid" 
+ng-options="c.country_id as c.short_name_code for c in country_arr">
+                </select>
+            </label>
+
+            <label class="item item-input">
+              <span class="input-label">Contact Number</span>
+              <input type="tel" ng-model="loginData.mobile">
+            </label>
+            
+            
+            <ion-toggle ng-model="loginData.seeker" ng-checked="loginData.seeker" toggle-class="toggle-balanced">
+            	I require space
+            </ion-toggle>
+            <ion-toggle ng-model="loginData.trader" ng-checked="loginData.trader" toggle-class="toggle-balanced">
+            	I have space to trade
+            </ion-toggle>
+   
+          </div>
+         
+          <div class="">
+         
+            <button class="button button-box button-block button-energized">
+              Create Profile
+            </button>
+
+          </div>  
+
+        </form>
+
+
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,61 @@
+<ion-view view-title="" align-title="left">
+    <ion-nav-bar class="bar-transparent" align-title="left">
+        <ion-nav-buttons side="left">
+          <button class="button button-clear button-small" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon positive"></i>
+          </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content class="bg-login vcenter-contentx" scroll="true">
+
+      <div class="content" style="margin-top: 60px;">
+          <div class="padding text-center">
+              <div class="app-icon"></div>
+              <!--<h5 class="slogan">Making use of the space between us</h5>-->
+          </div>
+      </div>
+      <h3 class="text-center text-white">Login</h3>
+
+      <div class="row">
+        <div class="col">
+          <button class="button button-block button-small button-positive-900 ion-social-facebook"ng-click="fbLogin()">
+            Facebook
+          </button>
+        </div>
+        <div class="col">
+          <button class="button button-block button-small button-assertive-900 ion-social-googleplus" ng-click="googleLogin()">
+            Google+
+          </button>
+        </div>
+      </div>
+      <form ng-submit="doLogin()" novalidate="novalidate">
+
+
+        <div class="padding">
+
+            <div class="list">
+              <ion-md-input placeholder="Email" hightlight-color="positive" type="email" ng-model="loginData.username"></ion-md-input>
+
+              <ion-md-input placeholder="Password" hightlight-color="positive" type="password" ng-model="loginData.password"></ion-md-input>
+
+            </div>
+
+          <button class="button button-block button-energized">
+            Login
+          </button>
+          <p class="text-center">
+            <a ng-click="openForgot()" class="button button-clear button-small button-block" style="margin-bottom: 0"><span class="energized">Forgot password</span></a><br />
+
+            <a ng-click="goSignup()" style="margin-top: 0" class="button button-clear button-small button-block"><span class="light">Don't have an account?</span> <span class="energized">Signup</span></a>
+
+          </p>
+
+        </div>
+
+      </form>
+
+
+
+    </ion-content>
+</ion-view>

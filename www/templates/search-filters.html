@@ -1,0 +1,106 @@
+<ion-modal-view>
+  <ion-header-bar class="header-positive">
+    <button class="button button-clear ion-ios-arrow-back" ng-click="closeModalFilter()"></button>
+    <h1 class="title">All filters</h1>
+  </ion-header-bar>
+  <ion-footer-bar align-title="left" class="bar-energized footer-requestbtn" ng-click="closeModalFilter()">
+    <div class="title">Update</div>
+  </ion-footer-bar>
+
+  <ion-content>
+    <div class="margin-bottom padding-bottom">
+      <form ng-submit="submitSpace()" class="filter-form" novalidate="novalidate">
+          <div class="list list-nm cardx card-flatx margin-bottom">
+
+            <div class="item item-divider">
+              Space Type
+            </div>
+            <div class="item item-checkbox icon-left ion-ios-box-outline">
+               <label class="checkbox">
+                 <input type="checkbox" name="space_type[]" ng-model="listing.space_type[0]" ng-true-value="'Apartment'">
+               </label>
+               Apartment
+            </div>
+            <div class="item item-checkbox icon-left ion-ios-home-outline">
+               <label class="checkbox">
+                 <input type="checkbox" name="space_type[]" ng-model="listing.space_type[1]" ng-true-value="'House'">
+               </label>
+               House
+            </div>
+            <div class="item item-checkbox icon-left ion-android-clipboard">
+               <label class="checkbox">
+                 <input type="checkbox" name="space_type[]" ng-model="listing.space_type[2]" ng-true-value="'Office'">
+               </label>
+               Office
+            </div>
+            <div class="item item-checkbox icon-left ion-cube">
+               <label class="checkbox">
+                 <input type="checkbox" name="space_type[]" ng-model="listing.space_type[3]" ng-true-value="'Warehouse'">
+               </label>
+               Warehouse
+            </div>
+            <div class="item item-checkbox icon-left ion-model-s">
+               <label class="checkbox">
+                 <input type="checkbox" name="space_type[]" ng-model="listing.space_type[4]" ng-true-value="'Garage'">
+               </label>
+               Garage
+            </div>
+
+
+            <div class="item item-divider">
+              Access
+            </div>
+            <div class="item item-checkbox icon-left ion-ios-clock-outline">
+               <label class="checkbox">
+                 <input type="checkbox" name="access[]" ng-model="listing.access[0]" ng-true-value="'24/7'">
+               </label>
+               24/7
+            </div>
+            <div class="item item-checkbox icon-left ion-ios-stopwatch-outline">
+               <label class="checkbox">
+                 <input type="checkbox" name="access[]" ng-model="listing.access[1]" ng-true-value="'Partial Access'">
+               </label>
+               Partial Access
+            </div>
+
+            <div class="item item-divider">
+              Security
+            </div>
+            <div class="item item-checkbox icon-left ion-volume-medium">
+               <label class="checkbox">
+                 <input type="checkbox" name="security[]" ng-model="listing.security[0]" ng-true-value="'Back to base'">
+               </label>
+               Back to base
+            </div>
+            <div class="item item-checkbox icon-left ion-ios-videocam-outline">
+               <label class="checkbox">
+                 <input type="checkbox" name="security[]" ng-model="listing.security[1]" ng-true-value="'CCTV'">
+               </label>
+               CCTV
+            </div>
+            <div class="item item-checkbox icon-left ion-radio-waves">
+               <label class="checkbox">
+                 <input type="checkbox" name="security[]" ng-model="listing.security[2]" ng-true-value="'Alarm'">
+               </label>
+               Alarm
+            </div>
+            <div class="item item-checkbox icon-left ion-lock-combination">
+               <label class="checkbox">
+                 <input type="checkbox" name="security[]" ng-model="listing.security[3]" ng-true-value="'Deadlock'">
+               </label>
+               Deadlock
+            </div>
+            <div class="item item-checkbox icon-left ion-ios-locked">
+               <label class="checkbox">
+                 <input type="checkbox" name="security[]" ng-model="listing.security[4]" ng-true-value="'Padlock'">
+               </label>
+               Padlock
+            </div>
+
+      </form>
+
+    </div>
+
+
+  </ion-content>
+</ion-modal-view>

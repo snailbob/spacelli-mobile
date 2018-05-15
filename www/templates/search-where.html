@@ -1,0 +1,40 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-light">
+    <div class="buttons" side="left">
+      <button class="button" ng-click="closeModalWhere()" style="text-align: left; padding-top: 5px; padding-left: 10px;">
+        <i class="icon ion-android-close"></i>
+      </button>
+    </div>
+
+    <h1 class="title">Where</h1>
+
+    <div class="buttons" side="right">
+      <button class="button" on-touch="search.string = ''" style="text-align: left; padding-left: 10px;">Reset</button>
+    </div>
+
+  </ion-header-bar>
+
+  <!-- <div class="bar bar-subheader item-input-inset padding-left padding-right">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input type="search" class="search-input-modal" g-places-autocomplete force-selection="true" ng-model="search.string" placeholder="Search city, address" ng-model-options="{ debounce: 250 }" ng-change="getSpaces()">
+
+      <a ng-if="search.string != ''" on-touch="search.string = ''">
+         <i class="icon ion-android-close placeholder-icon"></i>
+      </a>
+    </label>
+  </div> -->
+
+  <ion-content scroll="false">
+    <div class="card" style="border: 1px solid #eee">
+      <label class="item item-input item-input-wrapper">
+        <input type="search" class="search-input-modal" g-places-autocomplete force-selection="true" ng-model="search.string" placeholder="Search city, address" ng-model-options="{ debounce: 250 }" ng-change="getSpaces()">
+        <a ng-if="search.string != ''" on-touch="search.string = ''">
+           <i class="icon ion-android-close placeholder-icon"></i>
+        </a>
+
+      </label>
+    </div>
+
+  </ion-content>
+</ion-modal-view>

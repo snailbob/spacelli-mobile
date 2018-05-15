@@ -1,0 +1,62 @@
+  <ion-view view-title="Landing">
+    <div class="bar bar-header bar-transparent">
+      <button class="button button-clear button-energized ion-lock-combination" ng-click="openLogin()"> Login</button>
+      <button class="button button-clear button-energized ion-person" ng-click="openSign()"> Signup</button>
+    </div>  	
+    <ion-content class="bg-spacelli">
+        <div class="padding not-now">
+            <div class="img-logo"></div>
+            <h5 class="text-center">Making use of the space between us</h5>
+            
+        </div>
+        
+        <div class="item-transparent" style="padding-top: 2px;">
+            <div class="list list-inset" style="margin-bottom: 0">
+              <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" g-places-autocomplete force-selection="true" ng-model="search.string" placeholder="Where do you need space?" ng-change="getSpaces()">
+              </label>
+
+            </div>
+            <div class="padding">
+                <button class="button button-block button-small button-energized" ng-click="searchSpace()" style="margin-top: 0px">
+                    SEARCH FOR SPACE
+                </button>
+                <button class="button button-block button-small button-calm" style="margin-top: 0px">
+                    REQUEST QUOTE
+                </button>
+                <button class="button button-block button-small button-royal" style="margin-top: 0px">
+                    BOOK DECLUTTER CONSULTATION
+                </button>
+            </div>
+
+        </div>
+        <!--<div class="list">
+        
+          <div class="item item-input-inset item-transparent">
+            <label class="item-input-wrapper">
+              <input type="text" g-places-autocomplete force-selection="true" ng-model="search.string" placeholder="Search Space" ng-change="getSpaces()">
+            </label>
+            <button class="button button-small">
+              Submit
+            </button>
+          </div>
+        
+        </div>-->
+
+
+    </ion-content>
+  </ion-view>
+  
+  
+<!--<div class="bar bar-subfooter bar-transparent">
+    <button class="button button-block button-positive" ng-click="openLogin()" style="margin-top: 0px">
+        LOGIN
+    </button>
+</div>
+
+<div class="bar bar-footer bar-transparent">
+    <button class="button button-block button-outline button-positive" ng-click="openSign()"  style="margin-top: 0px">
+        SIGNUP
+    </button>
+</div>-->

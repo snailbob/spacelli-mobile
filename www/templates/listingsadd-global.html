@@ -1,0 +1,277 @@
+<ion-modal-view>
+  <ion-header-bar class="header-positive">
+    <button class="button button-clear ion-ios-arrow-back" ng-click="closeNewSpaceListing()"></button>
+    <h1 class="title">Back</h1>
+  </ion-header-bar>
+  <ion-content>
+
+    <div class="section-sparespace text-center">
+      <div class="padding-double main-title">
+        <h3 class="text-white">
+          Have a spare space?  <br>Rent it out and earn money.
+        </h3>
+
+        <div class="row">
+          <div class="col-80 col-offset-10">
+
+            <button class="button button-small button-energized button-block" ng-click="closeNewSpaceListing(); goSignup();">
+              Sign Up Now
+            </button>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+
+
+
+    <div class="section-telephone text-center" style="background: #f8f8f8">
+
+
+      <div class="row row-img-responsive2">
+        <div class="col text-center">
+          <div class="why-circle">
+            <i class="icon ion-ios-list-outline"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-80 col-offset-10 text-center">
+          <h4>
+            FREE
+          </h4>
+          <p>
+            List your space for free, set your terms and conditions.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="row row-img-responsive2">
+        <div class="col text-center">
+          <div class="why-circle">
+            <i class="icon ion-cash"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-80 col-offset-10 text-center">
+          <h4>
+            EARN MONEY
+
+          </h4>
+          <p>
+            Connect with renters, arrange via Spacelli and get paid monthly.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="row row-img-responsive2">
+        <div class="col text-center">
+          <div class="why-circle">
+            <i class="icon ion-ios-locked"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-80 col-offset-10 text-center">
+          <h4>
+            SECURE
+          </h4>
+          <p>
+            Your space is automatically covered with $10 million policy.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    
+        <!--<form ng-submit="submitSpace()" class="filter-form" novalidate="novalidate">
+            <div class="list list-nm card card-flat" style="margin-bottom: 0px">
+              <label class="item item-input">
+                <input type="text" ng-model="listing.title" placeholder="Listing Title *">
+
+              </label>
+
+              <div class="item item-divider">
+              	Space Type <i class="assertive">*</i>
+              </div>
+              <label class="item item-radio">
+                <input type="radio" name="spacetype" ng-model="listing.space_type" value="Apartment">
+                <div class="item-content icon-left ion-ios-box-outline">
+                  Apartment
+                </div>
+                <i class="radio-icon ion-checkmark positive"></i>
+              </label>
+              <label class="item item-radio">
+                <input type="radio" name="spacetype" ng-model="listing.space_type" value="House">
+                <div class="item-content icon-left ion-ios-home-outline">
+                  House
+                </div>
+                <i class="radio-icon ion-checkmark positive"></i>
+              </label>
+              <label class="item item-radio">
+                <input type="radio" name="spacetype" ng-model="listing.space_type" value="Office">
+                <div class="item-content icon-left ion-android-clipboard">
+                  Office
+                </div>
+                <i class="radio-icon ion-checkmark positive"></i>
+              </label>
+              <label class="item item-radio">
+                <input type="radio" name="spacetype" ng-model="listing.space_type" value="Warehouse">
+                <div class="item-content icon-left ion-cube">
+                  Warehouse
+                </div>
+                <i class="radio-icon ion-checkmark positive"></i>
+              </label>
+              <label class="item item-radio">
+                <input type="radio" name="spacetype" ng-model="listing.space_type" value="Garage">
+                <div class="item-content icon-left ion-model-s">
+                  Garage
+                </div>
+                <i class="radio-icon ion-checkmark positive"></i>
+              </label>
+
+              <div class="item item-divider">
+              	Access <i class="assertive">*</i>
+              </div>
+              <div class="item item-checkbox icon-left ion-ios-clock-outline">
+                 <label class="checkbox">
+                   <input type="checkbox" name="access[]" ng-model="listing.access[0]" ng-true-value="'24/7'">
+                 </label>
+                 24/7
+              </div>
+              <div class="item item-checkbox icon-left ion-ios-stopwatch-outline">
+                 <label class="checkbox">
+                   <input type="checkbox" name="access[]" ng-model="listing.access[1]" ng-true-value="'Partial Access'">
+                 </label>
+                 Partial Access
+              </div>
+
+
+              <div class="item item-divider">
+              	Security
+              </div>
+              <div class="item item-checkbox icon-left ion-volume-medium">
+                 <label class="checkbox">
+                   <input type="checkbox" name="security[]" ng-model="listing.security[0]" ng-true-value="'Back to base'">
+                 </label>
+                 Back to base
+              </div>
+              <div class="item item-checkbox icon-left ion-ios-videocam-outline">
+                 <label class="checkbox">
+                   <input type="checkbox" name="security[]" ng-model="listing.security[1]" ng-true-value="'CCTV'">
+                 </label>
+                 CCTV
+              </div>
+              <div class="item item-checkbox icon-left ion-radio-waves">
+                 <label class="checkbox">
+                   <input type="checkbox" name="security[]" ng-model="listing.security[2]" ng-true-value="'Alarm'">
+                 </label>
+                 Alarm
+              </div>
+              <div class="item item-checkbox icon-left ion-lock-combination">
+                 <label class="checkbox">
+                   <input type="checkbox" name="security[]" ng-model="listing.security[3]" ng-true-value="'Deadlock'">
+                 </label>
+                 Deadlock
+              </div>
+              <div class="item item-checkbox icon-left ion-ios-locked">
+                 <label class="checkbox">
+                   <input type="checkbox" name="security[]" ng-model="listing.security[4]" ng-true-value="'Padlock'">
+                 </label>
+                 Padlock
+              </div>
+
+              <div class="item item-divider">
+              	Approximate Size
+              </div>
+
+              <div class="item row">
+              	<div class="col">
+                	Unit
+                </div>
+                <div class="col">
+                    <div class="button-bar button-bar-small">
+                      <a class="button button-small button-positive" id="meter-btn" grouped-radio="'meter'" ng-model="listing.unit" ng-click="listingUnit('meter')">Meter</a>
+                      <a class="button button-small button-positive button-outline" id="feet-btn" grouped-radio="'feet'" ng-model="listing.unit" ng-click="listingUnit('feet')">Feet</a>
+                    </div>
+                </div>
+              </div>
+
+              <label class="item item-radio hide">
+                <input type="radio" name="approx_unit" ng-model="listing.unit" ng-checked="true" value="meter">
+                <div class="item-content">
+                  Meter
+                </div>
+                <i class="radio-icon ion-checkmark positive"></i>
+              </label>
+              <label class="item item-radio hide">
+                <input type="radio" name="approx_unit" ng-model="listing.unit" value="feet">
+                <div class="item-content">
+                  Feet
+                </div>
+                <i class="radio-icon ion-checkmark positive"></i>
+              </label>
+
+              <label class="item item-input item-floating-label">
+                <span class="input-label">Length</span>
+                <input type="tel" name="length" ng-model="listing.length" placeholder="Length"/>
+              </label>
+              <label class="item item-input item-floating-label">
+                <span class="input-label">Width</span>
+                <input type="tel" name="width" ng-model="listing.width" placeholder="Width"/>
+              </label>
+              <label class="item item-input item-floating-label">
+                <span class="input-label">Height</span>
+                <input type="tel" name="height" ng-model="listing.height" placeholder="Height"/>
+              </label>
+
+              <label class="item item-input item-floating-label">
+                <span class="input-label">Monthly rental fee ($) <i class="assertive">*</i></span>
+                <input type="tel" name="feefull" ng-model="listing.rental_fee_full" placeholder="Monthly rental fee ($) *"/>
+              </label>
+
+              <div class="item item-divider">
+              	Upload images and select feature image
+              </div>
+              <a class="item item-icon-left" ng-click="addMedia()">
+                <i class="icon ion-ios-cloud-upload-outline"></i>
+                Upload
+              </a>
+            </div>
+
+
+            <div class="row" style="padding: 0">
+              <div class="col" ng-repeat="img in listing.images" ng-click="imgAction($index, img)">
+                    <div class="img-featured" ng-class="{'featured':img.featured == 'Y'}">
+                        <img ng-src="{{img.file_upload_name}}" class="img-responsive"/>
+                    </div>
+              </div>
+            </div>
+
+
+            <div class="list list-nm card card-flat">
+              <label class="item item-input item-floating-label">
+                <span class="input-label">Suburb <i class="assertive">*</i></span>
+                <input type="text" g-places-autocomplete ng-model="listing.geolocation" force-selection="true" placeholder="Suburb *"/>
+              </label>
+
+            </div>
+            <div class="">
+            	<button class="button button-box button-energized button-block" type="submit">Submit</button>
+            </div>
+
+        </form>
+        <form class="hidden">
+          <input type="file" class="img-upload-input" ng-model="file" name="file" base-sixty-four-input required accept="image/*" onload="onLoadImgInput">
+        </form>-->
+
+
+  </ion-content>
+</ion-modal-view>

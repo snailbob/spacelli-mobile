@@ -1,0 +1,74 @@
+<ion-view view-title="Profile">
+
+    <ion-footer-bar align-title="left">
+      <div class="tabs-striped tabs-icon-only tabs-color-positive">
+        <div class="tabs tabs-icon-top tabs-search">
+          <a class="tab-item" ng-class="{active:uripath == '/app/profile'};" ng-click="goHome()">
+            <i class="icon ion-home"></i>
+            Home
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/cactivity'};" href="#/app/cactivity">
+            <i class="icon ion-ios-box"></i>
+            Storage
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/activity'};" href="#/app/activity">
+            <i class="icon ion-ios-speedometer"></i>
+            Dashboard
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/gallery'};" href="#/app/gallery">
+            <i class="icon ion-ios-heart"></i>
+            Favorites
+          </a>
+          <a class="tab-item" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon"></i>
+            <span class="badge badge-assertive" ng-show="notiCounts.notifications">{{notiCounts.notifications}}</span>
+            More
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>    
+
+        
+    <ion-content ng-class="{expanded:isExpanded}">
+
+        <ion-list class="list-nm list-wide animate-blinds">
+            <ion-item class="item-icon-left item-icon-right" href="#/app/editprofile">
+              <i class="icon ion-person"></i>
+              Edit Profile
+              <i class="icon ion-ios-arrow-thin-right"></i>
+            </ion-item>
+            <ion-item class="item-icon-left item-icon-right" href="#/app/verifications">
+              <i class="icon ion-android-checkmark-circle"></i>
+              Verifications
+              <i class="icon ion-ios-arrow-thin-right"></i>
+            </ion-item>
+            <ion-item class="item-icon-left item-icon-right" href="#/app/reviews">
+              <i class="icon ion-document-text"></i>
+              Reviews
+              <i class="icon ion-ios-arrow-thin-right"></i>
+            </ion-item>
+            <ion-item class="item-icon-left item-icon-right" href="#/app/references">
+              <i class="icon ion-android-chat"></i>
+              Reference
+              <i class="icon ion-ios-arrow-thin-right"></i>
+            </ion-item>
+            <!--<ion-item class="item-icon-left item-icon-right" href="#/app/listings">
+              <i class="icon ion-ios-list"></i>
+              My Listings
+              <i class="icon ion-ios-arrow-thin-right"></i>
+            </ion-item>
+            <ion-item class="item-icon-left item-icon-right" href="#/app/services">
+              <i class="icon ion-android-car"></i>
+              My Services
+              <i class="icon ion-ios-arrow-thin-right"></i>
+            </ion-item>
+            <ion-item class="item-icon-left item-icon-right" href="#/app/communities">
+              <i class="icon ion-ios-people"></i>
+              My Communities
+              <i class="icon ion-ios-arrow-thin-right"></i>
+            </ion-item>-->
+        
+        </ion-list>
+    
+    </ion-content>
+</ion-view>

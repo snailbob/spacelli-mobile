@@ -1,0 +1,47 @@
+<ion-view view-title="Messages">
+
+    <ion-footer-bar align-title="left">
+      <div class="tabs-striped tabs-icon-only tabs-color-positive">
+        <div class="tabs tabs-icon-top tabs-search">
+          <a class="tab-item" ng-class="{active:uripath == '/app/profile'};" ng-click="goHome()">
+            <i class="icon ion-home"></i>
+            Home
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/cactivity'};" href="#/app/cactivity">
+            <i class="icon ion-ios-box"></i>
+            Storage
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/activity'};" href="#/app/activity">
+            <i class="icon ion-ios-speedometer"></i>
+            Dashboard
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/gallery'};" href="#/app/gallery">
+            <i class="icon ion-ios-heart"></i>
+            Favorites
+          </a>
+          <a class="tab-item" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon"></i>
+            <span class="badge badge-assertive" ng-show="notiCounts.notifications">{{notiCounts.notifications}}</span>
+            More
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>    
+
+    
+    <ion-content>
+        <ion-list class="list-nm">
+            <a class="item" href="#/app/inbox">
+              <h2>Inbox</h2>
+              <span class="badge badge-assertive" ng-if="notiCounts.messages > 0">{{notiCounts.messages}}</span>
+            </a>
+            <a class="item" href="#/app/outbox">
+              <h2>Outbox</h2>
+            </a>
+            <a class="item" href="#/app/trash">
+              <h2>Trash</h2>
+            </a>
+        </ion-list>
+    </ion-content>
+
+</ion-view>

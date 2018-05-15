@@ -1,0 +1,42 @@
+<ion-modal-view>
+  <ion-header-bar class="header-positive">
+    <button class="button button-clear ion-ios-arrow-back" ng-click="closeModalMob()"></button>
+    <h1 class="title">Mobile</h1>
+  </ion-header-bar>
+  <ion-content>
+        <form ng-submit="submitMobile(mymob)" novalidate="novalidate">
+            <div class="list">
+
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Country Code
+                    </div>
+                    <select ng-model="mymob.country_id" 
+    ng-options="c.country_id as c.short_name_code for c in country_arr">
+                    </select>
+                </label>
+              
+                  <label class="item item-input">
+                    <span class="input-label">Mobile</span>
+                    <input type="tel" ng-model="mymob.mobile">
+                  </label>
+
+                  <a class="item" ng-click="haveCode()">
+                    <span class="item-note">
+                      Have the Code?
+                    </span>                  
+                    
+                  </a>
+              
+            </div>
+            <div class="padding">
+            	<button class="button button-energized button-block" type="submit">Send Verification Code</button>
+
+            </div>
+
+        </form>
+        
+    
+    
+  </ion-content>
+</ion-modal-view>

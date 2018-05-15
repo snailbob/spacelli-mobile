@@ -1,0 +1,66 @@
+<ion-slide-box slide-tabs-scrollable="true"  show-pager="false" ion-slide-tabs>
+                <ion-slide ion-slide-tab-label="TRANSIT">
+					<!--<ion-scroll style="height:100%" delegate-handle="slide1Scroll" >-->
+
+                    
+ 
+                    <!--</ion-scroll>-->
+				</ion-slide>
+                <ion-slide ion-slide-tab-label="CARGO">
+					<!--<ion-scroll style="height:100%" delegate-handle="slide1Scroll" >-->
+
+                    
+                        <div class="list list-nm">
+                            <div class="item item-divider">
+                                Cargo *
+                            </div>                          
+                            <ion-radio ng-model="choice" ng-repeat="cargo in form.cargosx" ng-value="cargo.id">{{cargo.hs_code}} &middot; {{cargo.description}}</ion-radio>
+
+                            <label class="item item-input">
+                                <input type="tel" placeholder="Brief Description of Goods *">
+                            </label>
+                            <div class="item item-divider">
+                                Transportation *
+                            </div> 
+                            <ion-radio ng-model="choice" ng-repeat="trans in form.transportations track by $index" ng-value="trans">{{trans}}</ion-radio>
+                                                     
+                        </div><!--list-->   
+                        <div class="button-bar">
+                          <a class="button">Back</a>
+                          <a class="button button-balanced">Next</a>
+                        </div>                           
+                    <!--</ion-scroll>-->
+                </ion-slide>
+                <ion-slide ion-slide-tab-label="QUOTE">
+                
+                		<p class="padding text-center">QUOTE</p>
+                        <div class="button-bar">
+                          <a class="button">Back</a>
+                          <a class="button button-balanced">Next</a>
+                        </div>                           
+                </ion-slide>
+                <ion-slide ion-slide-tab-label="POLICY">
+                
+                		<p class="padding text-center">POLICY</p>
+                        <div class="button-bar">
+                          <a class="button">Back</a>
+                          <a class="button button-balanced">Next</a>
+                        </div>                           
+                </ion-slide>
+                <ion-slide ion-slide-tab-label="CONFIRM">
+                
+                		<p class="padding text-center">CONFIRM</p>
+                        <div class="button-bar">
+                          <a class="button">Back</a>
+                          <a class="button button-balanced">Next</a>
+                        </div>                           
+                </ion-slide>
+                <ion-slide ion-slide-tab-label="SEND">
+                
+                		<p class="padding text-center">SEND</p>
+                        <div class="button-bar">
+                          <a class="button button-balanced">Submit</a>
+                        </div>                           
+                </ion-slide>
+
+            </ion-slide-box>      

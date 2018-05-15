@@ -1,0 +1,67 @@
+<ion-modal-view>
+  <ion-header-bar class="header-positive">
+    <button class="button button-clear ion-ios-arrow-back" ng-click="closeModal()"></button>
+    <h1 class="title">Space Details</h1>
+  </ion-header-bar>
+  <ion-content>
+        
+    <div class="list list-nm card card-flat">
+    
+      <div class="item item-avatar">
+        <img ng-src="{{activity.seeker_img}}">
+        <h2>{{activity.seeker_name}}</h2>
+        <p>{{activity.date_added}}</p>
+      </div>
+    
+      <div class="item item-image">
+        <img ng-src="{{activity.image}}" ng-if="activity.images.length == 1 || activity.images.length == 0">
+        <ion-slide-box ng-if="activity.images.length > 1">
+          <ion-slide ng-repeat="img in activity.images"><img ng-src="{{img.file_upload_name}}"></ion-slide>
+        </ion-slide-box>        
+      </div>
+      
+      <div class="item item-icon-left">
+        <i class="icon ion-pin"></i>
+        <strong class="list-white-space">{{activity.title}}</strong>
+        <p class="">{{activity.space_type}}</p>
+      </div>    
+      
+      <div class="item item-icon-left">
+        <i class="icon ion-ios-pricetag-outline"></i>
+        <strong>Rental Fee</strong>
+        <p class="list-white-space">${{activity.price}}/month</p>
+      </div>    
+      
+      <div class="item item-icon-left">
+        <i class="icon ion-ios-location-outline"></i>
+        <strong>Suburb</strong>
+        <p class="list-white-space">{{activity.geo_name}}</p>
+      </div>    
+      
+      <div class="item item-icon-left">
+        <i class="icon ion-ios-clock-outline"></i>
+        <strong>Access</strong>
+        <p class="list-white-space">{{activity.access_mob}}</p>
+      </div>    
+      
+      <div class="item item-icon-left">
+        <i class="icon ion-ios-locked-outline"></i>
+        <strong>Security</strong>
+        <p class="list-white-space">{{activity.security_mob}}</p>
+      </div>    
+      
+      <div class="item item-icon-left">
+        <i class="icon ion-ios-box-outline"></i>
+        <strong>Services</strong>
+        <p class="list-white-space">{{activity.services_mob}}</p>
+      </div>    
+    
+    </div>
+    
+    <div class="">
+    	<!--<button class="button button-energized button-block" ng-click="openModalBook()" ng-show="spaces.space_type == 'search'">Request Booking</button>-->
+    	<button class="button button-box button-energized button-block" ng-click="updateListing(activity)">Update</button>
+    </div>
+    
+  </ion-content>
+</ion-modal-view>

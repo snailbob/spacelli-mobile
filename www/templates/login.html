@@ -1,0 +1,48 @@
+<ion-modal-view>
+  <!--<ion-header-bar class="hide header-positive">
+    <button class="button button-clear ion-ios-arrow-back" ng-click="closeLogin()"></button>
+    <h1 class="title">Login</h1>
+  </ion-header-bar>-->
+  <ion-content class="bg-modal-login addStepWrapper">
+		<h3 class="text-center padding dark">Login</h3>
+        <div class="row">
+          <div class="col">
+            <button class="button button-block button-small button-positive-900 ion-social-facebook" ng-click="fbLogin()">
+              Facebook
+            </button>
+          </div>
+          <div class="col">
+            <button class="button button-block button-small button-assertive-900 ion-social-googleplus" ng-click="googleLogin()">
+              Google+
+            </button>
+          </div>
+        </div>
+        <form ng-submit="doLogin()" novalidate="novalidate">
+
+
+          <div class="padding">
+
+              <div class="list">
+                <ion-md-input placeholder="Email" hightlight-color="positive" type="email" ng-model="loginData.username"></ion-md-input>
+
+                <ion-md-input placeholder="Password" hightlight-color="positive" type="password" ng-model="loginData.password"></ion-md-input>
+
+              </div>
+
+            <button class="button button-block button-energized">
+              Login
+            </button>
+            <p class="text-center">
+              <a ng-click="openForgot()" class="button button-clear button-small button-block" style="margin-bottom: 0"><span class="energized">Forgot password</span></a><br />
+
+              <a ng-click="closeLogin()" style="margin-top: 0" class="button button-clear button-small button-block"><span class="dark">Don't have an account?</span> <span class="energized">Signup</span></a>
+
+            </p>
+
+          </div>
+
+        </form>
+
+
+  </ion-content>
+</ion-modal-view>

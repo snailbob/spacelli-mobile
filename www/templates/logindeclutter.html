@@ -1,0 +1,41 @@
+<ion-modal-view>
+  <ion-header-bar class="header-positive">
+    <button class="button button-clear ion-ios-arrow-back" ng-click="closeDeclutter()"></button>
+    <h1 class="title">Book Declutter Consultation</h1>
+  </ion-header-bar>
+  <ion-content>
+  
+
+        <form ng-submit="submitDeclutter(request)" novalidate="novalidate">
+            <div class="list list-nm list-wide card card-flat">
+                <label class="item item-input">
+                  <input type="text" ng-model="request.first" placeholder="First Name">
+                </label>
+                <label class="item item-input">
+                  <input type="text" ng-model="request.last" placeholder="Last Name">
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Country Code
+                    </div>
+                    <select ng-model="request.countryid" 
+    ng-options="c.calling_code as c.short_name_code for c in country_arr">
+                    </select>
+                </label>
+    
+                <label class="item item-input">
+                  <input type="tel" ng-model="request.mobile" placeholder="Contact Number">
+                </label>
+            </div>  
+
+            <div class="">
+                <button class="button button-box button-block button-energized">
+                  Submit
+                </button>
+            </div>  
+
+        </form>
+
+
+  </ion-content>
+</ion-modal-view>

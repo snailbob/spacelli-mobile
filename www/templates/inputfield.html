@@ -1,0 +1,18 @@
+<ion-modal-view>
+  <ion-header-bar class="header-positive">
+    <button class="button button-clear ion-ios-arrow-back" ng-click="closeModalInput()"></button>
+    <h1 class="title">{{inputField.title}}</h1>
+  </ion-header-bar>
+  <ion-content>
+        
+    <div class="list card list-inset list-input-field">
+      <label class="item item-input">
+            <input type="{{inputField.type}}" ng-model="listing[inputField.name]" placeholder="{{inputField.title}}" focus-on="focusMe">
+      </label>
+    </div>    
+    <div class="padding-left padding-right">
+    	<button class="button button-energized button-block" ng-click="closeModalInput()">OK</button>
+    </div>
+    
+  </ion-content>
+</ion-modal-view>

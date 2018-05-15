@@ -1,0 +1,60 @@
+<ion-view view-title="Book Declutter Consultation">
+
+    <div class="bar bar-subheader item-input-inset padding-left padding-right">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" g-places-autocomplete force-selection="true" ng-model="search.string" placeholder="Search" ng-model-options="{ debounce: 250 }" ng-change="getSpaces()">
+        
+        <a ng-if="search.string != ''" on-touch="search.string = ''">
+           <i class="icon ion-android-close placeholder-icon"></i>
+        </a>    
+      </label>
+    </div>
+    <!--<ion-footer-bar align-title="left" class="bar-positive">
+      <div class="tabs-striped tabs-color-positive">
+        <div class="tabs tabs-search">
+          <a class="tab-item active" ng-class="{'active': 0 === current}" ng-click="slide(0)">
+            <i class="icon ion-ios-list-outline"></i> 
+            List
+          </a>
+          <a class="tab-item" ng-class="{'active': 1 === current}" ng-click="slide(1)">
+            <i class="icon ion-map"></i>
+            Map
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>  -->  
+    
+  <ion-content class="has-subheader" style="padding-bottom: 0">
+        <ion-slide-box class="slide-map" ng-init="disableSwipe()" on-slide-changed="slideHasChanged($index)">
+            <ion-slide>
+                <ion-list class="list-nm animate-fade-slide-in" ng-if="spaces.consultants">
+                    <ion-item class="item-thumbnail-left item-text-wrap" ng-repeat="space in spaces.consultants | orderBy:'distance'" ng-click="openModal(space)" on-finish-render="ngRepeatFinished">
+                      <img class="img-space" ng-src="{{space.img}}">
+                      <h2>{{space.first_name}} {{space.last_name}}</h2>
+                      <p><i class="icon ion-ios-location"></i> {{space.city}}</p>
+                      <p><i class="icon ion-coffee"></i> {{space.company_name}}</p>
+                      <p><i class="icon ion-document-text"></i> {{space.description}}</p>
+
+                    
+                    </ion-item>
+                </ion-list>
+                
+                <p ng-if="search.string != ''" class="text-center padding">
+                    <ion-spinner ng-show="search.placeholder == 'spinner'"></ion-spinner>
+                    <span ng-show="spaces.consultants.length == 0 && search.placeholder != 'spinner'">No consultants found.</span>
+                </p>
+                <p ng-if="!spaces.consultants && search.string == ''" class="text-center padding">Search for space nearby</p>
+
+
+            </ion-slide>
+            <ion-slide>
+                <div id="map" data-tap-disabled="true"></div>
+            </ion-slide>
+        </ion-slide-box>  
+ 
+ 
+    
+  </ion-content>
+</ion-view>
+

@@ -1,0 +1,54 @@
+<ion-view view-title="Account Setup">
+
+    <ion-footer-bar align-title="left">
+      <div class="tabs-striped tabs-icon-only tabs-color-positive">
+        <div class="tabs tabs-icon-top tabs-search">
+          <a class="tab-item" ng-class="{active:uripath == '/app/profile'};" ng-click="goHome()">
+            <i class="icon ion-home"></i>
+            Home
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/cactivity'};" href="#/app/cactivity">
+            <i class="icon ion-ios-box"></i>
+            Storage
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/activity'};" href="#/app/activity">
+            <i class="icon ion-ios-speedometer"></i>
+            Dashboard
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/gallery'};" href="#/app/gallery">
+            <i class="icon ion-ios-heart"></i>
+            Favorites
+          </a>
+          <a class="tab-item" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon"></i>
+            <span class="badge badge-assertive" ng-show="notiCounts.notifications">{{notiCounts.notifications}}</span>
+            More
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>    
+
+    <ion-content>
+        <div class="list condensed-space no-padding animate-blinds" style="margin-bottom: 0">
+            <div class="card {{setup.bg}} in" style="transition-delay: 0.13s; border-radius: 0" ng-repeat="setup in setup" on-finish-render="ngRepeatFinished">
+                <a href="#/app/{{setup.link}}" class="item clear-bg item-bg-image waves-effect waves-button waves-light has-mask-reverse" ng-click="checkSetup($event, setup.name, setup.status)">
+                    <h2><i class="icon {{setup.icon}}"></i> {{setup.name}}</h2>
+                    <span class="item-note">
+                    	<i class="icon {{setup.ion}} icon-lg-5x"></i>
+                    </span>
+                    <!--<img ng-show="$odd" src="img/energy-saving_small.jpg" style="transition-delay: 0.02s;">-->
+                </a>
+            </div>
+        </div>
+       
+        <!--<div class="list list-nm hide">
+        
+          <a ng-repeat="setup in userData.account_setup" href="#/app/{{setup.link}}" class="item item-icon-left {{setup.status}}" ng-click="checkSetup($event, setup.name, setup.status)">
+            <i class="icon {{setup.icon}}"></i>
+            {{setup.name}}
+          </a>
+        
+        </div>-->
+        
+    </ion-content>
+</ion-view>

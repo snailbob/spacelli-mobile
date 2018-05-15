@@ -1,0 +1,27 @@
+<ion-modal-view>
+  <ion-header-bar class="header-positive">
+    <button class="button button-clear ion-ios-arrow-back" ng-click="closePm()"></button>
+    <h1 class="title">Send Message</h1>
+  </ion-header-bar>
+  <ion-content>
+  	<form ng-submit="submitMessage(recepient)">
+        <div class="list list-nm list-wide card card-flat">
+          <label class="item item-input">
+            <input type="text" placeholder="Name" ng-model="recepient.name" readonly="readonly">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Subject" ng-model="recepient.subject">
+          </label>
+          <label class="item item-input">
+            <textarea placeholder="Message" rows="5" ng-model="recepient.message"></textarea>
+          </label>
+        </div>      
+        <div class="">
+            <button class="button button-box button-energized button-block">
+                Submit
+            </button>
+        </div>
+    </form>     
+
+  </ion-content>
+</ion-modal-view>

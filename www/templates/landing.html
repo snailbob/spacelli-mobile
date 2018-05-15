@@ -1,0 +1,534 @@
+<ion-view view-title="" align-title="left">
+    <ion-nav-bar class="bar-transparent" align-title="left">
+        <ion-nav-buttons side="left">
+          <button class="button button-clear button-small" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon positive"></i>
+          </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content class="bg-loginx vcenter-contentx content-header-transparent" scroll="true">
+
+
+
+        <!-- <ion-slide-box show-pager="false" class="slide-intro" on-slide-changed="slideChanged(index)">
+          <ion-slide>
+          </ion-slide>
+        </ion-slide-box> -->
+
+        <div class="section-one">
+          <div class="section-one-full">
+            <div class="content">
+                <div class="padding text-center">
+                    <div class="app-icon"></div>
+                    <!--<h5 class="slogan">Making use of the space between us</h5>-->
+                </div>
+            </div>
+
+
+            <div class="padding-double main-title">
+                <p class="margin-bottom-none">
+                  Making use of the spaces between us
+                </p>
+                <h3>Search and rent self-storage with a neighbour and save</h3>
+
+                <div style="margin: 0 auto;width: 100%" class="text-center text-white">
+                  <small>WATCH THE VIDEO</small>
+                </div>
+                <div class="circle-play" ng-click="openIntroVideo()">
+                  <i class="icon ion-play"></i>
+                </div>
+
+                <button class="button button-small button-energized button-energized-pinkx button-block" ng-click="goSearchspace()">
+                  <i class="icon ion-search"></i> Search for space
+                </button>
+            </div>
+
+          </div>
+
+
+        </div>
+        <!--<div class="section-shield">
+          <div class="row row-img-responsive-90">
+            <div class="col text-center">
+              <img src="img/bg/10m-insurance.png" />
+            </div>
+            <div class="col text-center">
+              <img src="img/bg/250k-insurance.png" />
+            </div>
+          </div>
+
+        </div>-->
+
+        <!--<div class="section-two text-center">
+          <div class="padding-double">
+            <h3>
+              Turning the self-storage industry on its head
+            </h3>
+            <p>
+              We want to change the way you think about self-storage by utilizing a community marketplace for the storage of your cherished goods and items. We do this by using non-traditional spaces – making space accessible and storage affordable for everyone.
+            </p>
+          </div>
+        </div>-->
+
+
+        <div class="section-featured text-center">
+          <div class="padding-double2">
+            <h3>
+              As featured in:
+            </h3>
+          </div>
+          <div class="row row-img-responsive-90 vcenter-content padding-bottom">
+            <div class="col-67 text-center">
+              <a href="http://www.domain.com.au/news/the-airbnb-of-storage-is-here-spacer-spacelli-launch-for-the-spacepoor-20160311-gnfutv/" target="_blank">
+                <img src="img/bg/seen/theage.png" />
+              </a>
+            </div>
+            <div class="col-33 text-center">
+              <a href="http://www.domain.com.au/news/the-airbnb-of-storage-is-here-spacer-spacelli-launch-for-the-spacepoor-20160311-gnfutv/" target="_blank">
+                <img src="img/bg/seen/smh.png" />
+              </a>
+            </div>
+          </div>
+          <div class="row row-img-responsive-90 vcenter-content">
+            <div class="col-67 text-center">
+              <a href="http://www.startupdaily.net/2015/08/melbourne-startup-spacelli-latest-enter-growing-self-storage-market/" target="_blank">
+                <img src="img/bg/seen/startupdaily.png" />
+              </a>
+            </div>
+            <div class="col-33 text-center">
+              <a href="http://localhost/nguyen/spacelli.com/staging/#" target="_blank">
+                <img src="img/bg/seen/3AW.png" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="section-white text-center">
+          <div class="padding-double2">
+            <h3>
+              What is Spacelli?
+            </h3>
+            <p class="text-slim">
+              Spacelli is Australia's community marketplace to list, discover and rent storage spaces from local residents. Free up your living space and store away all unused items that clutter your home. Connect with hosts by interests and hobbies or just find storage nearby.
+            </p>
+            <p>
+              Popular things to store
+            </p>
+          </div>
+          <div class="padding">
+              <img src="img/bg/popular/things/things1.jpg" style="width: 100%; margin-bottom: 15px" alt="">
+              <img src="img/bg/popular/things/things2.jpg" style="width: 100%; margin-bottom: 15px" alt="">
+              <img src="img/bg/popular/things/things3.jpg" style="width: 100%; margin-bottom: 15px" alt="">
+              <img src="img/bg/popular/things/things4.jpg" style="width: 100%; margin-bottom: 15px" alt="">
+
+          </div>
+        </div>
+
+
+
+        <div class="section-telephone text-center">
+          <div class="padding-double2">
+            <h3>
+              How it works
+            </h3>
+          </div>
+
+          <div class="row row-img-responsive2">
+            <div class="col-50 col-offset-25 text-center">
+              <img src="img/bg/how/how1.png" alt="">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-80 col-offset-10 text-center">
+              <h4>
+                1. BROWSE SPACES
+              </h4>
+              <p>
+                Explore the marketplace to find a space that fits your needs. 
+              </p>
+            </div>
+          </div>
+
+
+          <div class="row row-img-responsive2">
+            <div class="col-50 col-offset-25 text-center">
+              <img src="img/bg/how/how2.png" alt="">
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-80 col-offset-10 text-center">
+              <h4>
+                2. CONNECT WITH HOSTS
+              </h4>
+              <p>
+                Narrow your search, message hosts directly and confirm details through our platform. 
+              </p>
+            </div>
+          </div>
+
+
+          <div class="row row-img-responsive2">
+            <div class="col-50 col-offset-25 text-center">
+              <img src="img/bg/how/how3.png" alt="">
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-80 col-offset-10 text-center">
+              <h4>
+                3. BOOK & ENJOY
+              </h4>
+              <p>
+                Finalise your reservation using our secure online booking process.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!--<div class="section-video text-center">
+
+        </div>-->
+
+        <!--<div class="section-featured text-center">
+          <div class="padding-double">
+            <h3>
+              Connecting Space Seekers with Space Traders
+            </h3>
+            <p>
+              Spacelli connects people looking for space with locals who rent out their unused space.
+            </p>
+          </div>
+
+          <div class="padding">
+            <div class="row row-img-responsive">
+              <div class="col-33 text-center">
+                <img src="img/bg/storage-icon.png" />
+              </div>
+              <div class="col text-left">
+                <h4>
+                  FIND A SPACE
+                </h4>
+                <p>
+                  Save money by renting the best space for your storage needs.
+                </p>
+              </div>
+            </div>
+            <div class="row row-img-responsive">
+              <div class="col-33 text-center">
+                <img src="img/bg/cash-icon.png" />
+              </div>
+              <div class="col text-left">
+                <h4>
+                  LIST YOUR SPACE
+                </h4>
+                <p>
+                  Let us help you earn money from your unused space.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>-->
+
+
+          <div class="section-telephone text-center" style="background: #f8f8f8">
+            <div class="padding-double2">
+              <h3>
+                Why Spacelli?
+              </h3>
+            </div>
+
+            <div class="row row-img-responsive2">
+              <div class="col text-center">
+                <div class="why-circle">
+                  <i class="icon ion-ios-loop-strong"></i>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-80 col-offset-10 text-center">
+                <h4>
+                  CONVENIENT
+                </h4>
+                <p>
+                  Access self-storage spaces near you at the click of a button. Filter by your preferences.
+                </p>
+              </div>
+            </div>
+
+
+            <div class="row row-img-responsive2">
+              <div class="col text-center">
+                <div class="why-circle">
+                  <i class="icon ion-pricetag"></i>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-80 col-offset-10 text-center">
+                <h4>
+                  AFFORDABLE
+                </h4>
+                <p>
+                  Don't overpay for storage spaces anymore. Explore and compare the best rates.
+                </p>
+              </div>
+            </div>
+
+
+            <div class="row row-img-responsive2">
+              <div class="col text-center">
+                <div class="why-circle">
+                  <i class="icon ion-ios-locked"></i>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-80 col-offset-10 text-center">
+                <h4>
+                  SECURE
+                </h4>
+                <p>
+                  All your goods in storage are protected from loss, theft or damage up to $50,000.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="section-white text-center">
+            <div class="padding-double2">
+              <h3>
+                Spacelli insurance - we've got you covered
+              </h3>
+              <!--<p>
+                We’ve thought of everything to make your storage experience simply the world’s best. Sleep easy! Spacelli has top rated insurance coverage for our users.
+              </p>-->
+            </div>
+
+            <div class="padding">
+              <div class="row">
+                <div class="col text-left">
+
+                  <p style="font-size: 17px !important; line-height: 25px;">
+                    Thanks to our partnership with CGU Insurance, when you use Spacelli for self-storage, rest assured that our Space Traders are automatically covered by a $10 million liability insurance policy.
+                  </p>
+
+                  <p class="text-center">
+                    <button class="button button-positive" ng-click="openInsuranceMore()">
+                      Read more
+                    </button>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+
+
+            <div class="section-between text-center">
+              <div class="padding-double main-title">
+                <h3 class="text-white">
+                  Making use of the spaces between us
+                </h3>
+
+                <div class="row">
+                  <div class="col-80 col-offset-10">
+                    <p class="text-slim text-white">
+                      Let's get started
+
+                    </p>
+                    <button class="button button-small button-energized button-block" ng-click="goSearchspace()">
+                      <i class="icon ion-search"></i> Search for space
+                    </button>
+                  </div>
+                </div>
+
+                
+              </div>
+            </div>
+
+
+
+            <div class="section-whitex text-center" style="background: #f1f1f1">
+              <div class="padding-double">
+                <!--<h3>
+                  Spacelli insurance - we've got you covered
+                </h3>-->
+                <p>
+                  Connect with us
+                </p>
+                <div class="row">
+                  <div class="col col-33 text-center">
+                    <a target="_blank" href="https://www.instagram.com/spacelli_/">
+                      <div class="social-circle">
+                        <span class="icon ion-social-instagram"></span>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col col-33 text-center">
+                    <a target="_blank" href="https://facebook.com/spacellidotcom">
+                      <div class="social-circle">
+                        <span class="icon ion-social-facebook"></span>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col col-33 text-center">
+                    <a target="_blank" href="https://twitter.com/spacelli_">
+                      <div class="social-circle">
+                        <span class="icon ion-social-twitter"></span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="padding">
+                <p style="color: #555; font-size: 8px;">
+                  Copyright &copy; Spacelli.com 2017. All rights reserved
+                </p>
+              </div>
+
+            </div>
+
+
+
+            <!--<div class="section-train text-center">
+              <div class="padding-double2">
+                <h3>
+                  The sharing economy = the next industrial revolution?
+                </h3>
+                <p>
+                  A global consciousness has awoken within all of us that was lost for a long time. We are somehow now more connected through technology and our own shared experiences. We can monetize our passions, create individual enterprise and we have the freedom to embrace micro entrepreneurship on our own terms. Collaborative consumption is gaining momentum. Doing more with less and finding access over ownership is succeeding. Being sustainable and caring for each other and our environment is winning. If the sharing economy is to be the next industrial revolution it really needs to touch the hearts of the mainstream - this is the vision we hold for Spacelli.
+                </p>
+              </div>
+
+            </div>
+            <div class="section-polaroid text-center">
+              <div class="padding-double2">
+                <h3>
+                  Spacelli is perfect for...
+                </h3>
+              </div>
+              <div class="row">
+                <div class="col-50 text-center">
+                  <div class="list card">
+                    <div class="item item-image">
+                      <img src="img/bg/for/renovator.jpg" />
+                    </div>
+                    <a class="item text-center">
+                      Renovator
+                    </a>
+                  </div>
+
+                </div>
+                <div class="col-50 text-center">
+
+                  <div class="list card">
+                    <div class="item item-image">
+                      <img src="img/bg/for/business_owners.jpg" />
+                    </div>
+                    <a class="item text-center">
+                      Business Owners
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-50 text-center">
+
+                  <div class="list card">
+                    <div class="item item-image">
+                      <img src="img/bg/for/traveler.jpg" />
+                    </div>
+                    <a class="item text-center">
+                      Leisure Traveler
+                    </a>
+                  </div>
+
+                </div>
+                <div class="col-50 text-center">
+                  <div class="list card">
+                    <div class="item item-image">
+                      <img src="img/bg/for/designer.jpg" />
+                    </div>
+                    <a class="item text-center">
+                      Interior Designer
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-50 col-offset-25 text-center">
+                  <div class="list card">
+                    <div class="item item-image">
+                      <img src="img/bg/for/student.jpg" />
+                    </div>
+                    <a class="item text-center">
+                      Students
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>-->
+
+            <!--<div class="section-stalk text-center">
+              <div class="padding-double2">
+                <h3>
+                  Stalk us, we don’t mind
+                </h3>
+              </div>
+              <div class="row row-social-btns">
+                <div class="col-50 text-center">
+                  <a href="https://www.facebook.com/spacellidotcom" target="_blank" class="button button-block icon-left ion-social-facebook">
+                    Facebook
+                  </a>
+                </div>
+                <div class="col-50 text-center">
+                  <a href="https://instagram.com/meyouwespacelli/" target="_blank" class="button button-block icon-left ion-social-instagram">
+                    Instagram
+                  </a>
+                </div>
+
+              </div>
+              <div class="row row-social-btns">
+
+                <div class="col-50 text-center">
+                  <a href="http://localhost/nguyen/spacelli.com/staging/#" target="_blank" class="button button-block icon-left ion-social-pinterest">
+                    Pinterest
+                  </a>
+                </div>
+                <div class="col-50 text-center">
+                  <a href="https://twitter.com/MeYouWeSpacelli" target="_blank" class="button button-block icon-left ion-social-twitter">
+                    Twitter
+                  </a>
+                </div>
+
+              </div>
+              <div class="row row-social-btns">
+
+                <div class="col-50 col-offset-25 text-center">
+                  <a href="http://www.linkedin.com/company/spacelli" target="_blank" class="button button-block icon-left ion-social-linkedin">
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
+
+            </div>-->
+
+        </div>
+
+
+    </ion-content>
+</ion-view>

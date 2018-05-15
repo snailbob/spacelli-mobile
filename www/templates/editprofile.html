@@ -1,0 +1,102 @@
+<ion-view view-title="Profile">
+  <!--<ion-nav-buttons side="right" ng-show="false">
+    <button class="button button-icon icon ion-ios-download-outline" ng-click="submitProfile()"></button>
+  </ion-nav-buttons>-->
+
+
+    <ion-footer-bar align-title="left">
+      <div class="tabs-striped tabs-icon-only tabs-color-positive">
+        <div class="tabs tabs-icon-top tabs-search">
+          <a class="tab-item" ng-class="{active:uripath == '/app/profile'};" ng-click="goHome()">
+            <i class="icon ion-home"></i>
+            Home
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/cactivity'};" href="#/app/cactivity">
+            <i class="icon ion-ios-box"></i>
+            Storage
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/activity'};" href="#/app/activity">
+            <i class="icon ion-ios-speedometer"></i>
+            Dashboard
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/gallery'};" href="#/app/gallery">
+            <i class="icon ion-ios-heart"></i>
+            Favorites
+          </a>
+          <a class="tab-item" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon"></i>
+            <span class="badge badge-assertive" ng-show="notiCounts.notifications">{{notiCounts.notifications}}</span>
+            More
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>
+
+
+
+    <ion-content>
+        <div class="hero" style="height: 125px; background-image: url('img/login.jpg');">
+            <div class="content">
+                <div class="avatar" ng-click="addMedia()" ng-style="avatarStyle"></div>
+            </div>
+
+            <form class="hidden">
+              <input type="file" class="img-upload-input" ng-model="file" name="file" base-sixty-four-input required accept="image/*" onload="onLoadImgInput">
+            </form>
+
+        </div>
+        <form ng-submit="submitProfile(info)" novalidate="novalidate">
+
+            <div class="list list-nm list-wide card card-flat">
+              <label class="item item-input">
+                <input type="text" placeholder="First Name" ng-model="profile.first_name" readonly="readonly">
+              </label>
+              <label class="item item-input">
+                <input type="text" placeholder="Last Name" ng-model="profile.last_name" readonly="readonly">
+              </label>
+              <label class="item item-input">
+                <input type="text" placeholder="Email" ng-model="profile.email" readonly="readonly">
+              </label>
+              <label class="item item-input">
+                <input type="text" placeholder="Suburb" g-places-autocomplete force-selection="true" ng-model="search.string">
+              </label>
+              <label class="item item-input">
+                <textarea type="text" placeholder="About Me" rows="5" ng-model="info.description"></textarea>
+              </label>
+                <ion-toggle
+                    class="item" ng-model="info.require_space"
+                    ng-checked="info.require_space">
+                  I require space
+                </ion-toggle>
+                <ion-toggle
+                    class="item" ng-model="info.trade_space"
+                    ng-checked="info.trade_space">
+                  I have space to trade
+                </ion-toggle>
+
+            </div>
+            <div class="list list-nm">
+              <!--<label class="item item-input item-stacked-label">
+                <span class="input-label">First Name</span>
+                <input type="text" placeholder="First Name" ng-model="profile.first_name" readonly="readonly">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Last Name</span>
+                <input type="text" placeholder="Last Name" ng-model="profile.last_name" readonly="readonly">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Email</span>
+                <input type="text" placeholder="Email" ng-model="profile.email" readonly="readonly">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">About Me</span>
+                <textarea type="text" placeholder="About Me" rows="5" ng-model="info.description"></textarea>
+              </label>-->
+            </div>
+            <div class="">
+                <button type="submit" class="button button-box button-energized button-block">Submit</button>
+            </div>
+        </form>
+
+    </ion-content>
+</ion-view>

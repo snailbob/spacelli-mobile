@@ -1,0 +1,105 @@
+<ion-view view-title="Home">
+
+    <!--<ion-nav-buttons side="right">
+    <button class="button button-clear button-icon icon ion-ios-location-outline" ng-click="showLocPop()"></button>
+    </ion-nav-buttons>-->
+
+    <ion-footer-bar align-title="left">
+      <div class="tabs-striped tabs-icon-only tabs-color-positive">
+        <div class="tabs tabs-icon-top tabs-search">
+          <a class="tab-item" ng-class="{active:uripath == '/app/profile'};" ng-click="goHome()">
+            <i class="icon ion-home"></i>
+            Home
+          </a>
+          <!--<a class="tab-item" ng-class="{active:uripath == '/app/inbox'};" href="#/app/inbox">
+            <i class="icon ion-ios-email"></i>
+            <span class="badge badge-assertive" ng-show="notiCounts.messages">{{notiCounts.messages}}</span>
+            Inbox
+          </a>-->
+          <a class="tab-item" ng-class="{active:uripath == '/app/cactivity'};" href="#/app/cactivity">
+            <i class="icon ion-ios-box"></i>
+            Storage
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/activity'};" href="#/app/activity">
+            <i class="icon ion-ios-speedometer"></i>
+            Dashboard
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/gallery'};" href="#/app/gallery">
+            <i class="icon ion-ios-heart"></i>
+            Favorites
+          </a>
+          <a class="tab-item" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon"></i>
+            <span class="badge badge-assertive" ng-show="notiCounts.notifications">{{notiCounts.notifications}}</span>
+            More
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>
+
+    <ion-content class="bg-login" ng-class="{expanded:$scope.isExpanded}">
+        <div class="hero hero-flat hero-full slide-up">
+
+
+            <div class="content">
+                <div class="avatar" ng-click="addMedia()" ng-style="avatarStyle"></div>
+                <h3><a class="dark">{{userData.first_name}} {{userData.last_name}}</a></h3>
+                <p class="" ui-sref="app.editprofile">Update Profile</p>
+            </div>
+        </div>
+        <div class="padding-left padding-right">
+            <div class="seeker-search-btns" ng-show="userData.require_space == '1'">
+                <button class="button button-block button-small button-energized" ng-click="searchSpace()">
+                    Search for Space
+                </button>
+                <!--<button class="button button-block button-small button-positive" ng-click="openModalAdd(search.string)">
+                    Request Quote
+                </button>-->
+                <button class="button button-block button-small button-royal" ng-click="openDeclutter()">
+                    Book Declutter Consultation
+                </button>
+            </div>
+            <!--<div ng-show="userData.trade_space == '1'">
+                <button class="button button-block button-small button-calm" ng-click="openBrowse()">
+                    Browse Space Requests
+                </button>
+            </div>-->
+        </div>
+
+
+        <form class="hidden">
+          <input type="file" class="img-upload-input" ng-model="file" name="file" base-sixty-four-input required accept="image/*" onload="onLoadImgInput">
+        </form>
+
+
+       <!--<div class="hero slide-up" style="background-image: url('img/login.jpg');">
+            <div class="content">
+                <div class="avatar" ng-click="addMedia()" ng-style="avatarStyle"></div>
+                <h3><a class="dark">{{userData.first_name}} {{userData.last_name}}</a></h3>
+                <p class="" ui-sref="app.editprofile">Update Profile</p>
+            </div>
+        </div>
+
+        <div class="" ng-show="notiCounts.notifications > 0">
+            <div class="list list-nm">
+                <a class="item item-icon-left" href="#app/notifications">
+                    <i class="icon ion-ios-bell-outline"></i>
+                    <h2><span class="badge badge-assertive">{{notiCounts.notifications}}</span> New Notification<span ng-show="notiCounts.notifications > 1">s</span></h2>
+                </a>
+            </div>
+        </div>
+
+        <div class="tabs tabs-dark static">
+            <div class="list list-tab-item">
+              <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" g-places-autocomplete force-selection="true" ng-model="search.string" placeholder="Where do you need space?" ng-change="getSpaces(search.string)">
+              </label>
+            </div>
+        </div>-->
+
+
+
+    </ion-content>
+
+</ion-view>

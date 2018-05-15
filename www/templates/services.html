@@ -1,0 +1,66 @@
+<ion-view view-title="My Services">
+
+    <ion-footer-bar align-title="left">
+      <div class="tabs-striped tabs-icon-only tabs-color-positive">
+        <div class="tabs tabs-icon-top tabs-search">
+          <a class="tab-item" ng-class="{active:uripath == '/app/profile'};" ng-click="goHome()">
+            <i class="icon ion-home"></i>
+            Home
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/cactivity'};" href="#/app/cactivity">
+            <i class="icon ion-ios-box"></i>
+            Storage
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/activity'};" href="#/app/activity">
+            <i class="icon ion-ios-speedometer"></i>
+            Dashboard
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/gallery'};" href="#/app/gallery">
+            <i class="icon ion-ios-heart"></i>
+            Favorites
+          </a>
+          <a class="tab-item" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon"></i>
+            <span class="badge badge-assertive" ng-show="notiCounts.notifications">{{notiCounts.notifications}}</span>
+            More
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>    
+
+
+    <ion-content>
+
+        <div class="list list-nm">
+            <div ng-repeat="service in uservices.services track by service.type">
+                <ion-toggle ng-model="service.status" 
+                            ng-checked="service.status">
+                  {{ service.type }}
+                </ion-toggle> 
+                <label class="item item-input" ng-show="service.status == true">
+                    <span class="input-label">Rate</span>
+                    <input type="text" placeholder="$Rate" ng-model="service.rate">
+                </label>       
+    
+            </div>
+       
+            <div ng-show="uservices.services[1].status == true || uservices.services[2].status == true">
+                <div class="item item-divider">
+                    Vehicles
+                </div>   
+                <ion-checkbox ng-repeat="service in uservices.vehicles track by service.type"
+                            ng-model="service.status" 
+                            ng-checked="service.status">
+                  {{ service.type }}
+                </ion-checkbox> 
+            </div>
+             
+                   
+        
+        </div>
+        
+        <div class="" ng-show="uservices.services">
+            <button class="button button-box button-energized button-block" ng-click="submitServices(uservices)">Submit</button>
+        </div>
+    </ion-content>
+</ion-view>

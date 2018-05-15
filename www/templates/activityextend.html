@@ -1,0 +1,22 @@
+<ion-modal-view>
+  <ion-header-bar class="header-positive">
+    <button class="button button-clear ion-ios-arrow-back" ng-click="closeExtend()"></button>
+    <h1 class="title">Extend Storage Period</h1>
+  </ion-header-bar>
+  <ion-content>
+  	<form ng-submit="submitExtend(extend)">
+        <div class="list list-nm">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Extra month(s) </span>
+            <input type="tel" placeholder="" ng-model="extend.extra_month" >
+          </label>
+        </div>      
+        <div class="padding">
+            <button class="button button-energized button-block">
+                Submit
+            </button>
+        </div>
+    </form>     
+
+  </ion-content>
+</ion-modal-view>

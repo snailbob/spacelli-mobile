@@ -1,0 +1,64 @@
+<ion-modal-view>
+  <ion-header-bar class="header-positive">
+    <button class="button button-clear ion-ios-arrow-back" ng-click="closeModalBook()"></button>
+    <h1 class="title">Booking Request</h1>
+  </ion-header-bar>
+
+  <ion-content>
+        <form ng-submit="submitBooking()" novalidate="novalidate">
+            <!-- <div class="list list-nm card card-flat">
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Months in storage <i class="assertive">*</i></span>
+                <input type="tel" ng-model="activity.months" placeholder="">
+              </label> -->
+
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Message to {{activity.seeker_name}} <i class="assertive">*</i></span>
+                <textarea ng-model="activity.message" rows="4" placeholder="Message your space trader.."></textarea>
+              </label>
+
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Description of goods <i class="assertive">*</i></span>
+                <textarea ng-model="activity.description" rows="4" placeholder="Provide a short description of your goods"></textarea>
+              </label>
+
+              <div class="item item-divider">
+              	Upload images
+              </div>
+              <a class="item item-icon-left" ng-click="addMedia()">
+                <i class="icon ion-ios-cloud-upload-outline"></i>
+                Upload
+              </a>
+            </div> <!--class list-->
+
+                <div class="row" style="padding: 0">
+                  <div class="col" ng-repeat="img in listing.images" ng-click="imgAction($index, img)">
+                        <div class="img-featured" ng-class="{'featured':img.featured == 'Y'}">
+                            <img ng-src="{{img.file_upload_name}}" class="img-responsive"/>
+                        </div>
+                  </div>
+                </div>
+
+            <div class="list list-nm card card-flat">
+              <div class="item" ng-click="togglePromo(promofield)">
+              	Have promo code?
+              </div>
+              <label class="item item-input" ng-class="{'hide' : promofield}">
+                <input type="text" ng-model="activity.promo" placeholder="Enter Promo Code" ng-keyup="validatePromo(activity)">
+                <span class="item-note" ng-show="validpromo.count">{{validpromo.promo.percentage_off}}% off for {{validpromo.promo.months}} months</span>
+              </label>
+
+            </div>
+            <div class="padding">
+            	<button class="button button-box button-energized button-block" type="submit">Submit</button>
+            </div>
+
+        </form>
+        
+        <form class="hidden">
+          <input type="file" class="img-upload-input" ng-model="file" name="file" base-sixty-four-input required accept="image/*" onload="onLoadImgInput">
+        </form>
+
+
+  </ion-content>
+</ion-modal-view>

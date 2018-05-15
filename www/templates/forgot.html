@@ -1,0 +1,30 @@
+<ion-modal-view>
+  <!--<ion-header-bar class="hide header-positive">
+    <button class="button button-clear ion-ios-arrow-back" ng-click="closeForgot()"></button>
+    <h1 class="title">Forgot Password</h1>
+  </ion-header-bar>-->
+
+
+  <ion-content class="bg-modal-login">
+		<h3 class="dark text-center text-white padding">Forgot Password</h3>
+        <form ng-submit="doForgot()" novalidate="novalidate">
+          <div class="padding">
+              <div class="list">
+                <ion-md-input placeholder="Email" hightlight-color="positive" type="email" ng-model="loginData.forgot"></ion-md-input>
+
+              </div>
+         
+            <button class="button button-block button-energized">
+              Send
+            </button>
+            <p class="text-center">
+              <a ng-click="closeForgot()" class="button button-clear button-small button-block"><span class="energized">Login</span></a>
+            </p>
+
+          </div>
+
+        </form>
+
+
+  </ion-content>
+</ion-modal-view>

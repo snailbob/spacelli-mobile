@@ -1,0 +1,52 @@
+<ion-view view-title="Reference">
+
+    <ion-footer-bar align-title="left">
+      <div class="tabs-striped tabs-icon-only tabs-color-positive">
+        <div class="tabs tabs-icon-top tabs-search">
+          <a class="tab-item" ng-class="{active:uripath == '/app/profile'};" ng-click="goHome()">
+            <i class="icon ion-home"></i>
+            Home
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/cactivity'};" href="#/app/cactivity">
+            <i class="icon ion-ios-box"></i>
+            Storage
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/activity'};" href="#/app/activity">
+            <i class="icon ion-ios-speedometer"></i>
+            Dashboard
+          </a>
+          <a class="tab-item" ng-class="{active:uripath == '/app/gallery'};" href="#/app/gallery">
+            <i class="icon ion-ios-heart"></i>
+            Favorites
+          </a>
+          <a class="tab-item" ng-click="toggleRightSideMenu()">
+            <i class="icon ion-navicon"></i>
+            <span class="badge badge-assertive" ng-show="notiCounts.notifications">{{notiCounts.notifications}}</span>
+            More
+          </a>
+        </div>
+      </div>
+    </ion-footer-bar>    
+
+	 
+    <ion-content>
+        <p class="padding">
+            Spacelli is built on trust and reputation. You can request references from your personal network, and the references will appear publicly on your Spacelli profile to help other members get to know you. You should only request references from people who know you well.
+        </p>
+        <form ng-submit="submitReference(ref)" novalidate="novalidate">
+            <div class="list list-nm">
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Email</span>
+                <input type="email" ng-model="ref.email" placeholder="">
+              </label>
+            </div>
+            <div class="">
+        
+                <button class="button button-box button-energized button-block">
+                    Submit
+                </button>
+            </div>
+        </form>
+
+    </ion-content>
+</ion-view>

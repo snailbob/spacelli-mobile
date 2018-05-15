@@ -1,0 +1,66 @@
+<ion-modal-view>
+  <ion-header-bar class="header-positive">
+    <button class="button button-clear ion-ios-arrow-back" ng-click="closeModalOffers()"></button>
+    <h1 class="title">{{reqMessTitle}}</h1>
+  </ion-header-bar>
+  <ion-content>
+	
+    <div ng-show="reqMess.length > 0">        
+        <div class="list list-nm card card-flat list-offers" ng-if="reqMessTitle == 'Comments'">
+            <div class="item item-avatar" ng-repeat="m in reqMess">
+              <img ng-src="{{m.provider_avatar}}">
+              <span class="item-note">{{m.date_added_format}}</span>
+              <h2>{{m.provider_name}}</h2>
+              <p class="list-white-space">{{m.details}}</p>
+            </div>    
+        </div>    
+                
+        <div class="list list-nm card" ng-if="reqMessTitle == 'Offers'" ng-repeat="m in reqMess" style="margin-bottom: 0">
+        
+          <div class="item item-avatar">
+            <img ng-src="{{m.provider_avatar}}">
+            <span class="item-note">{{m.date_added_format}}</span>
+            <h2>{{m.provider_name}}</h2>
+            <p><strong class="balanced">${{m.offer}} ({{m.paymenttype}})</strong></p>
+            <p class="list-white-space" style="padding-top: 0">{{m.details}}</p>
+          </div>
+        
+
+          <div class="item tabs tabs-secondary tabs-icon-left" ng-if="activity.seeker_id == user_id && activity.status_text == 'Pending'">
+            <a class="tab-item" ng-click="openPm(m, 'provider')">
+              <i class="icon ion-ios-email-outline"></i>
+              Message {{m.provider_name}}
+            </a>
+            <a class="tab-item" ng-click="confirmAccept(m)">
+              <i class="icon ion-ios-paper-outline"></i>
+              Accept
+            </a>
+          </div>
+          <div class="item tabs tabs-secondary tabs-icon-left" ng-if="user_id  == m.provider_id">
+            <a class="tab-item" ng-click="openPm(m, 'seeker')">
+              <i class="icon ion-ios-email-outline"></i>
+              Message {{m.seeker_name}}
+            </a>
+          </div>
+          <div class="item item-divider item-icon-left" ng-if="m.task_status == 'assigned'">
+          	<i class="icon ion-ribbon-b assertive"></i>
+            <span class="assertive">Assigned</span>
+            <span class="item-note">{{activity.date_assigned_ago}}</span>
+          </div>          
+          
+        </div>
+        
+            
+    </div>
+
+    
+    <div class="">
+    	<p class="text-center padding-top" ng-show="reqMess.length == 0">Nothing to show you.</p>
+    
+    	<button class="button button-box button-energized button-block" ng-show="reqMessFormTitle != 'Offers' && activity.status_text == 'Pending'" ng-click="openModalBook(reqMessFormTitle)">
+        	{{reqMessFormTitle}}
+        </button>
+    </div>
+    
+  </ion-content>
+</ion-modal-view>
